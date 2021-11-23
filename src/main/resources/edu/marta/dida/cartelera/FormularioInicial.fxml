@@ -1,0 +1,153 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.geometry.Insets?>
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.CheckBox?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.TableColumn?>
+<?import javafx.scene.control.TableView?>
+<?import javafx.scene.control.TextArea?>
+<?import javafx.scene.control.TextField?>
+<?import javafx.scene.control.ToolBar?>
+<?import javafx.scene.control.cell.PropertyValueFactory?>
+<?import javafx.scene.image.Image?>
+<?import javafx.scene.image.ImageView?>
+<?import javafx.scene.layout.ColumnConstraints?>
+<?import javafx.scene.layout.GridPane?>
+<?import javafx.scene.layout.HBox?>
+<?import javafx.scene.layout.RowConstraints?>
+<?import javafx.scene.layout.StackPane?>
+<?import javafx.scene.layout.VBox?>
+<?import javafx.scene.text.Font?>
+<?import javafx.scene.text.Text?>
+
+<VBox spacing="20" style="-fx-background-color: #f9e79f;" xmlns="http://javafx.com/javafx/17" xmlns:fx="http://javafx.com/fxml/1" fx:controller="edu.marta.dida.cartelera.FormularioInicialController">
+    
+    <padding>
+        <Insets bottom="15" left="15" right="15" top="15" />
+    </padding> 
+    
+ <ToolBar nodeOrientation="LEFT_TO_RIGHT" style="-fx-background-color: transparent;" HBox.hgrow="ALWAYS">
+    
+    <Text style="-fx-font-weight: bold;" text="Cines Os Cantóns" wrappingWidth="239.5703125">
+        <font>
+            <Font name="Cambria" size="24.0" />
+        </font>
+              
+    </Text>
+        <Button onAction="#delete">
+            <graphic>
+                <ImageView>
+                    <Image url="@../../../../iconos/mas.png" />
+                </ImageView>
+            </graphic>
+        </Button>
+        <Button onAction="#edit">
+            <graphic>
+                <ImageView>
+                    <Image url="@../../../../iconos/edit.png" />
+                </ImageView>
+            </graphic>
+        </Button>
+        <Button onAction="#add">
+            <graphic>
+                <ImageView>
+                    <Image url="@../../../../iconos/menos.png" />
+                </ImageView>
+            </graphic>
+        </Button>
+    </ToolBar>
+
+<GridPane hgap="10.0" vgap="10">
+    
+    <padding>
+        <Insets bottom="10" left="10" right="10" top="10" />
+    </padding>
+    
+    <Label text="Título" GridPane.rowIndex="1" />
+    <TextField fx:id="titulo" GridPane.columnIndex="1" GridPane.rowIndex="1" />
+    
+    <Label text="Director" GridPane.rowIndex="2" />
+    <TextField fx:id="director" GridPane.columnIndex="1" GridPane.rowIndex="2" />
+    
+    <Label text="Sinopsis" GridPane.rowIndex="3" />
+    <TextArea fx:id="sinopsis" GridPane.columnIndex="1" GridPane.rowIndex="3" />
+    
+    <Label text="Calificacion" GridPane.columnIndex="2" GridPane.rowIndex="1">
+         <GridPane.margin>
+            <Insets left="10.0" />
+         </GridPane.margin></Label>
+    <CheckBox fx:id="mayorCheck" text="Más de 18" GridPane.columnIndex="3" GridPane.rowIndex="1" /> 
+    <CheckBox fx:id="menorCheck" text="Todos los públicos" GridPane.columnIndex="4" GridPane.rowIndex="1" />
+   
+    
+    <Label prefHeight="17.0" prefWidth="53.0" text="Horario" GridPane.columnIndex="2" GridPane.rowIndex="2">
+         <GridPane.margin>
+            <Insets left="10.0" />
+         </GridPane.margin></Label>
+    <TextField fx:id="horario" GridPane.columnIndex="3" GridPane.rowIndex="2" />
+    
+    <Label text="Sala" GridPane.columnIndex="2" GridPane.rowIndex="3">
+         <GridPane.margin>
+            <Insets left="10.0" />
+         </GridPane.margin></Label>
+    <TextField fx:id="sala" prefHeight="25.0" prefWidth="266.0" GridPane.columnIndex="3" GridPane.rowIndex="3" />
+      <columnConstraints>
+         <ColumnConstraints maxWidth="87.0" minWidth="49.0" prefWidth="87.0" />
+         <ColumnConstraints maxWidth="473.0" minWidth="302.0" prefWidth="302.0" />
+         <ColumnConstraints maxWidth="180.0" minWidth="60.0" prefWidth="117.0" />
+         <ColumnConstraints maxWidth="282.0" minWidth="90.0" prefWidth="176.0" />
+         <ColumnConstraints maxWidth="286.0" minWidth="126.0" prefWidth="169.0" />
+      </columnConstraints>
+      <rowConstraints>
+         <RowConstraints />
+         <RowConstraints />
+         <RowConstraints />
+         <RowConstraints />
+      </rowConstraints>
+    
+    <!--<Button GridPane.rowIndex="3" GridPane.columnIndex="2" text="Guardar" onAction="#guardar"/>-->
+</GridPane>
+
+<StackPane HBox.hgrow="ALWAYS">
+    <TableView fx:id="tablaDepartamentos">
+        <columns>
+            <TableColumn prefWidth="50.0" text="Id">
+                <cellValueFactory>
+                    <PropertyValueFactory property="id" />
+                </cellValueFactory>
+            </TableColumn>
+            <TableColumn prefWidth="200.0" text="Título">
+                <cellValueFactory>
+                    <PropertyValueFactory property="titulo" />
+                </cellValueFactory>
+            </TableColumn>
+            <TableColumn prefWidth="100.0" text="Director">
+                <cellValueFactory>
+                    <PropertyValueFactory property="director" />
+                </cellValueFactory>
+            </TableColumn>
+             <TableColumn prefWidth="240.0" text="Sinopsis">
+                <cellValueFactory>
+                    <PropertyValueFactory property="sinopsis" />
+                </cellValueFactory>
+            </TableColumn>
+            <TableColumn prefWidth="50.0" text="Sala">
+                <cellValueFactory>
+                    <PropertyValueFactory property="sala" />
+                </cellValueFactory>
+            </TableColumn>
+            <TableColumn prefWidth="50.0" text="Edad">
+                <cellValueFactory>
+                    <PropertyValueFactory property="edad" />
+                </cellValueFactory>
+            </TableColumn>
+            <TableColumn prefWidth="100.0" text="Horario">
+                <cellValueFactory>
+                    <PropertyValueFactory property="horario" />
+                </cellValueFactory>
+            </TableColumn>
+        </columns>
+    </TableView>
+</StackPane>
+</VBox>
