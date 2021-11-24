@@ -39,7 +39,7 @@ public class FormularioInicialController implements Initializable {
     @FXML 
     CheckBox noVoCheck;
     @FXML
-    DatePicker horario;
+    DatePicker fecha;
     @FXML
     TextField sala;
     
@@ -56,7 +56,6 @@ public class FormularioInicialController implements Initializable {
         configurarChecks();
         peliculaDAO = new PeliculaDAO();
         cargarPeliculasCartelera();
-        //configurarTamanhoColumnas();
         configurarFecha();
     } 
     
@@ -83,7 +82,7 @@ public class FormularioInicialController implements Initializable {
             pelicula.setDirector(director.getText());
             pelicula.setSinopsis(sinopsis.getText());
             pelicula.setIdioma(siVoCheck.isSelected()? 0 : 1);
-            pelicula.setHorario(horario.getValue().toString());
+            pelicula.setFecha(fecha.getValue().toString());
             pelicula.setSala(Integer.parseInt(sala.getText()));
             
             peliculaDAO.guardarOActualizar(pelicula);
@@ -96,7 +95,6 @@ public class FormularioInicialController implements Initializable {
             director.clear();
             sinopsis.clear();
             siVoCheck.setSelected(true);
-           // noVoCheck.setSelected(false);
             configurarFecha();
             sala.clear();
             
@@ -113,10 +111,10 @@ public class FormularioInicialController implements Initializable {
         } else {
             noVoCheck.setSelected(true); 
         }      
-        String[] fecha = pelicula.getHorario().split("-");
+        String[] fecha = pelicula.getFecha().split("-");
         List<Integer> datosFecha = Arrays.asList(fecha).stream().map(dato -> Integer.parseInt(dato)).collect(Collectors.toList());
        
-        horario.setValue( LocalDate.of(datosFecha.get(0), datosFecha.get(1), datosFecha.get(2)));
+        this.fecha.setValue( LocalDate.of(datosFecha.get(0), datosFecha.get(1), datosFecha.get(2)));
         sala.setText(String.valueOf(pelicula.getSala()));
         id = pelicula.getId();
     }
@@ -135,16 +133,9 @@ public class FormularioInicialController implements Initializable {
        tablaPeliculas.setItems(peliculas);
     }
     
-//    private void configurarTamanhoColumnas() {
-//        tablaPeliculas.setColumnResizePolicy(TableView.CONSTRAINED_RESIZE_POLICY);
-//        ObservableList<TableColumn<Pelicula, ?>> columnas = tablaPeliculas.getColumns();
-//        columnas.get(0).setMaxWidth(1f * Integer.MAX_VALUE * 15);
-//        columnas.get(1).setMaxWidth(1f * Integer.MAX_VALUE * 25);
-//        columnas.get(2).setMaxWidth(1f * Integer.MAX_VALUE * 60);
-//    }
 
     private void configurarFecha() {
-      horario.setValue(LocalDate.now());
+      fecha.setValue(LocalDate.now());
 
     }
     

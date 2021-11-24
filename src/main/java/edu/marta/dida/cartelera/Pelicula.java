@@ -15,16 +15,16 @@ public class Pelicula {
     String director;
     String sinopsis;
     int idioma;
-    String horario;
+    String fecha;
     int sala;
 
-    public Pelicula(int id, String titulo, String director, String sinopsis, int idioma, String horario, int sala) {
+    public Pelicula(int id, String titulo, String director, String sinopsis, int idioma, String fecha, int sala) {
         this.id = id;
         this.titulo = titulo;
         this.director = director;
         this.sinopsis = sinopsis;
         this.idioma = idioma;
-        this.horario = horario;
+        this.fecha = fecha;
         this.sala = sala;
     }
 
@@ -73,12 +73,12 @@ public class Pelicula {
         this.idioma = idioma;
     }
 
-    public String getHorario() {
-        return horario;
+    public String getFecha() {
+        return fecha;
     }
 
-    public void setHorario(String horario) {
-        this.horario = horario;
+    public void setFecha(String fecha) {
+        this.fecha = fecha;
     }
 
     public int getSala() {

@@ -37,7 +37,7 @@ public class PeliculaDAO {
                                  "director VARCHAR(255), " +
                                  "sinopsis VARCHAR(255), " +
                                  "sala INT(11), " +
-                                 "horario VARCHAR(255), " +
+                                 "fecha VARCHAR(255), " +
                                  "idioma INT(11) )";
                     statement.executeUpdate(sql);
        } catch (Exception e){
@@ -56,9 +56,9 @@ public class PeliculaDAO {
      public void guardar(Pelicula pelicula) {
         try (Connection conexionDB = DriverManager.getConnection(URL_CONEXION, USUARIO_BDD, PASSWORD_BDD)){
                     Statement statement = conexionDB.createStatement();
-                    String sql = "INSERT INTO pelicula(titulo, director, sinopsis, idioma, horario, sala) "  
+                    String sql = "INSERT INTO pelicula(titulo, director, sinopsis, idioma, fecha, sala) "  
                                  + "VALUES ('" + pelicula.getTitulo() + "', '" + pelicula.getDirector() + "', '" + pelicula.getSinopsis() 
-                            + "', '" + pelicula.getIdioma()+ "', '" + pelicula.getHorario()+ "', '" + pelicula.getSala()+ "')";        
+                            + "', '" + pelicula.getIdioma()+ "', '" + pelicula.getFecha()+ "', '" + pelicula.getSala()+ "')";        
                     statement.executeUpdate(sql);
        } catch (Exception e){
            throw new RuntimeException("Ocurrió un error al guardar las películas: " + e.getMessage());
@@ -70,7 +70,7 @@ public class PeliculaDAO {
                     Statement statement = conexionDB.createStatement();
                     String sql = "UPDATE pelicula set titulo='" + pelicula.getTitulo()+
                             "', director='" + pelicula.getDirector() + "', sinopsis='" + pelicula.getSinopsis() 
-                            + "', idioma='" + pelicula.getIdioma() + "', horario='" + pelicula.getHorario() 
+                            + "', idioma='" + pelicula.getIdioma() + "', fecha='" + pelicula.getFecha() 
                             + "', sala='" + pelicula.getSala() + "' WHERE id=" + pelicula.getId();       
                     statement.executeUpdate(sql);
        } catch (Exception e){
@@ -92,7 +92,7 @@ public class PeliculaDAO {
                         pelicula.setDirector(resultSet.getString("director"));
                         pelicula.setSinopsis(resultSet.getString("sinopsis"));
                         pelicula.setSala(resultSet.getInt("sala"));
-                        pelicula.setHorario(resultSet.getString("horario"));
+                        pelicula.setFecha(resultSet.getString("fecha"));
                         pelicula.setIdioma(resultSet.getInt("idioma"));
                         
                        

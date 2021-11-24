@@ -82,11 +82,11 @@
     <CheckBox fx:id="noVoCheck" text="Doblada" GridPane.columnIndex="4" GridPane.rowIndex="1" />
    
     
-    <Label prefHeight="17.0" prefWidth="53.0" text="Horario" GridPane.columnIndex="2" GridPane.rowIndex="2">
+    <Label prefHeight="17.0" prefWidth="53.0" text="Fecha" GridPane.columnIndex="2" GridPane.rowIndex="2">
          <GridPane.margin>
             <Insets left="10.0" />
          </GridPane.margin></Label>
-    <DatePicker fx:id="horario" GridPane.columnIndex="3" GridPane.rowIndex="2" />
+    <DatePicker fx:id="fecha" GridPane.columnIndex="3" GridPane.rowIndex="2" />
     
     <Label text="Sala" GridPane.columnIndex="2" GridPane.rowIndex="3">
          <GridPane.margin>
@@ -143,9 +143,9 @@
                     <PropertyValueFactory property="idioma" />
                 </cellValueFactory>
             </TableColumn>
-            <TableColumn prefWidth="100.0" text="Horario">
+            <TableColumn prefWidth="100.0" text="Fecha">
                 <cellValueFactory>
-                    <PropertyValueFactory property="horario" />
+                    <PropertyValueFactory property="fecha" />
                 </cellValueFactory>
             </TableColumn>
         </columns>
