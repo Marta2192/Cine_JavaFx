@@ -10,20 +10,35 @@ package edu.marta.dida.cartelera;
  */
 public class Pelicula {
     
+    int id;
     String titulo;
     String director;
     String sinopsis;
-    int sala;
+    int idioma;
     String horario;
-    String calificacion;
+    int sala;
 
-    public Pelicula(String titulo, String director, String sinopsis, int sala, String horario, String calificacion) {
+    public Pelicula(int id, String titulo, String director, String sinopsis, int idioma, String horario, int sala) {
+        this.id = id;
         this.titulo = titulo;
         this.director = director;
         this.sinopsis = sinopsis;
-        this.sala = sala;
+        this.idioma = idioma;
         this.horario = horario;
-        this.calificacion = calificacion;
+        this.sala = sala;
+    }
+
+    public Pelicula() {
+    }
+
+    
+
+    public int getId() {
+        return id;
+    }
+
+    public void setId(int id) {
+        this.id = id;
     }
 
     public String getTitulo() {
@@ -50,12 +65,12 @@ public class Pelicula {
         this.sinopsis = sinopsis;
     }
 
-    public int getSala() {
-        return sala;
+    public int getIdioma() {
+        return idioma;
     }
 
-    public void setSala(int sala) {
-        this.sala = sala;
+    public void setIdioma(int idioma) {
+        this.idioma = idioma;
     }
 
     public String getHorario() {
@@ -66,15 +81,15 @@ public class Pelicula {
         this.horario = horario;
     }
 
-    public String getCalificacion() {
-        return calificacion;
+    public int getSala() {
+        return sala;
     }
 
-    public void setCalificacion(String calificacion) {
-        this.calificacion = calificacion;
+    public void setSala(int sala) {
+        this.sala = sala;
     }
     
     
     
-    
+   
 }

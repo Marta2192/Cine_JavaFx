@@ -20,6 +20,7 @@
 <?import javafx.scene.layout.VBox?>
 <?import javafx.scene.text.Font?>
 <?import javafx.scene.text.Text?>
+<?import javafx.scene.control.DatePicker?>
 
 <VBox spacing="20" style="-fx-background-color: #f9e79f;" xmlns="http://javafx.com/javafx/17" xmlns:fx="http://javafx.com/fxml/1" fx:controller="edu.marta.dida.cartelera.FormularioInicialController">
     
@@ -35,7 +36,7 @@
         </font>
               
     </Text>
-        <Button onAction="#delete">
+        <Button onAction="#add">
             <graphic>
                 <ImageView>
                     <Image url="@../../../../iconos/mas.png" />
@@ -49,7 +50,7 @@
                 </ImageView>
             </graphic>
         </Button>
-        <Button onAction="#add">
+        <Button onAction="#delete">
             <graphic>
                 <ImageView>
                     <Image url="@../../../../iconos/menos.png" />
@@ -73,19 +74,19 @@
     <Label text="Sinopsis" GridPane.rowIndex="3" />
     <TextArea fx:id="sinopsis" GridPane.columnIndex="1" GridPane.rowIndex="3" />
     
-    <Label text="Calificacion" GridPane.columnIndex="2" GridPane.rowIndex="1">
+    <Label text="Idioma" GridPane.columnIndex="2" GridPane.rowIndex="1">
          <GridPane.margin>
             <Insets left="10.0" />
          </GridPane.margin></Label>
-    <CheckBox fx:id="mayorCheck" text="Más de 18" GridPane.columnIndex="3" GridPane.rowIndex="1" /> 
-    <CheckBox fx:id="menorCheck" text="Todos los públicos" GridPane.columnIndex="4" GridPane.rowIndex="1" />
+    <CheckBox fx:id="siVoCheck" text="V.O." GridPane.columnIndex="3" GridPane.rowIndex="1" /> 
+    <CheckBox fx:id="noVoCheck" text="Doblada" GridPane.columnIndex="4" GridPane.rowIndex="1" />
    
     
     <Label prefHeight="17.0" prefWidth="53.0" text="Horario" GridPane.columnIndex="2" GridPane.rowIndex="2">
          <GridPane.margin>
             <Insets left="10.0" />
          </GridPane.margin></Label>
-    <TextField fx:id="horario" GridPane.columnIndex="3" GridPane.rowIndex="2" />
+    <DatePicker fx:id="horario" GridPane.columnIndex="3" GridPane.rowIndex="2" />
     
     <Label text="Sala" GridPane.columnIndex="2" GridPane.rowIndex="3">
          <GridPane.margin>
@@ -110,7 +111,7 @@
 </GridPane>
 
 <StackPane HBox.hgrow="ALWAYS">
-    <TableView fx:id="tablaDepartamentos">
+    <TableView fx:id="tablaPeliculas">
         <columns>
             <TableColumn prefWidth="50.0" text="Id">
                 <cellValueFactory>
@@ -137,9 +138,9 @@
                     <PropertyValueFactory property="sala" />
                 </cellValueFactory>
             </TableColumn>
-            <TableColumn prefWidth="50.0" text="Edad">
+            <TableColumn prefWidth="50.0" text="Idioma">
                 <cellValueFactory>
-                    <PropertyValueFactory property="edad" />
+                    <PropertyValueFactory property="idioma" />
                 </cellValueFactory>
             </TableColumn>
             <TableColumn prefWidth="100.0" text="Horario">

@@ -23,6 +23,7 @@ public class App extends Application {
      
      primaryStage.setScene(escena);
      primaryStage.show();
+   
     }
 
     public static void main(String[] args) {
