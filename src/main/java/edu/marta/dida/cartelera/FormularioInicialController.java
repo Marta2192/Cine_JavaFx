@@ -8,8 +8,6 @@ package edu.marta.dida.cartelera;
 import edu.marta.dida.carteleraDAO.PeliculaDAO;
 import java.net.URL;
 import java.time.LocalDate;
-import java.time.Month;
-import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.List;
 import java.util.ResourceBundle;
@@ -91,15 +89,18 @@ public class FormularioInicialController implements Initializable {
             
             cargarPeliculasCartelera();
             
+            clean();
+            
+        }
+    public void clean(){
             titulo.clear();
             director.clear();
             sinopsis.clear();
             siVoCheck.setSelected(true);
             configurarFecha();
-            sala.setValue(0);
-            
-        }
-     
+            sala.setValue(-1);
+    } 
+    
     @FXML
     public void edit() {
         Pelicula pelicula = tablaPeliculas.getSelectionModel().getSelectedItem();
@@ -140,7 +141,7 @@ public class FormularioInicialController implements Initializable {
     }
 
     private void configurarComboBox() {
-        sala.getItems().addAll(0, 1, 2, 3, 4 , 5, 6);
+        sala.getItems().addAll(1, 2, 3, 4 , 5, 6);
     }
     
 }
