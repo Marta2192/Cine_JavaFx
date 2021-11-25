@@ -14,14 +14,13 @@ import java.util.Arrays;
 import java.util.List;
 import java.util.ResourceBundle;
 import java.util.stream.Collectors;
-import java.util.stream.IntStream;
 import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
 import javafx.fxml.Initializable;
 import javafx.fxml.FXML;
 import javafx.scene.control.CheckBox;
+import javafx.scene.control.ComboBox;
 import javafx.scene.control.DatePicker;
-import javafx.scene.control.TableColumn;
 import javafx.scene.control.TableView;
 import javafx.scene.control.TextField;
 import javafx.scene.control.TextArea;
@@ -41,7 +40,7 @@ public class FormularioInicialController implements Initializable {
     @FXML
     DatePicker fecha;
     @FXML
-    TextField sala;
+    ComboBox<Integer> sala;
     
     
     @FXML 
@@ -57,6 +56,7 @@ public class FormularioInicialController implements Initializable {
         peliculaDAO = new PeliculaDAO();
         cargarPeliculasCartelera();
         configurarFecha();
+        configurarComboBox();
     } 
     
     
@@ -83,7 +83,7 @@ public class FormularioInicialController implements Initializable {
             pelicula.setSinopsis(sinopsis.getText());
             pelicula.setIdioma(siVoCheck.isSelected()? 0 : 1);
             pelicula.setFecha(fecha.getValue().toString());
-            pelicula.setSala(Integer.parseInt(sala.getText()));
+            pelicula.setSala(sala.getValue());
             
             peliculaDAO.guardarOActualizar(pelicula);
             
@@ -96,7 +96,7 @@ public class FormularioInicialController implements Initializable {
             sinopsis.clear();
             siVoCheck.setSelected(true);
             configurarFecha();
-            sala.clear();
+            sala.setValue(0);
             
         }
      
@@ -115,7 +115,7 @@ public class FormularioInicialController implements Initializable {
         List<Integer> datosFecha = Arrays.asList(fecha).stream().map(dato -> Integer.parseInt(dato)).collect(Collectors.toList());
        
         this.fecha.setValue( LocalDate.of(datosFecha.get(0), datosFecha.get(1), datosFecha.get(2)));
-        sala.setText(String.valueOf(pelicula.getSala()));
+        sala.setValue(pelicula.getSala());
         id = pelicula.getId();
     }
     
@@ -137,6 +137,10 @@ public class FormularioInicialController implements Initializable {
     private void configurarFecha() {
       fecha.setValue(LocalDate.now());
 
+    }
+
+    private void configurarComboBox() {
+        sala.getItems().addAll(0, 1, 2, 3, 4 , 5, 6);
     }
     
 }

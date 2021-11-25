@@ -87,7 +87,6 @@ public class PeliculaDAO {
                     while(resultSet.next()){
                         Pelicula pelicula = new Pelicula();
                         pelicula.setId(resultSet.getInt("id"));
-                        System.err.println("HOLA =======>" + resultSet.getInt("id"));
                         pelicula.setTitulo(resultSet.getString("titulo"));
                         pelicula.setDirector(resultSet.getString("director"));
                         pelicula.setSinopsis(resultSet.getString("sinopsis"));
