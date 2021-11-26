@@ -7,23 +7,48 @@ import javafx.scene.Scene;
 import javafx.stage.Stage;
 
 import java.io.IOException;
+import javafx.geometry.Rectangle2D;
+import javafx.stage.Screen;
 
 /**
  * JavaFX App
  */
 public class App extends Application {
 
-    private static Scene scene;
+    private static Scene escena;
+    private static Stage stage;
+
+    public static Stage getStage() {
+        return stage;
+    }
+    
+    
 
     @Override
     public void start(Stage primaryStage) throws IOException {
-     Parent contenedor = new FXMLLoader().load(getClass().getResource("FormularioInicial.fxml"));
-     
-     Scene escena = new Scene(contenedor, 820,500);
+     this.stage = primaryStage;
+     escena = new Scene(loadFXML("PantallaInicial"));  
      
      primaryStage.setScene(escena);
      primaryStage.show();
    
+    }
+    
+    static void setRoot(String fxml) throws IOException {
+        
+        escena.setRoot(loadFXML(fxml));
+        App.getStage().sizeToScene();
+        Rectangle2D primScreenBounds = Screen.getPrimary().getVisualBounds();
+        double x = (primScreenBounds.getWidth() - App.getStage().getWidth()) / 2;
+        double y = (primScreenBounds.getHeight() - App.getStage().getHeight()) / 2;
+        App.getStage().setX(x);
+        App.getStage().setY(y);
+        
+    }
+
+    private static Parent loadFXML(String fxml) throws IOException {
+        FXMLLoader fxmlLoader = new FXMLLoader(App.class.getResource(fxml + ".fxml"));
+        return fxmlLoader.load(); 
     }
 
     public static void main(String[] args) {

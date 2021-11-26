@@ -6,6 +6,7 @@ package edu.marta.dida.cartelera;
  */
 
 import edu.marta.dida.carteleraDAO.PeliculaDAO;
+import java.io.IOException;
 import java.net.URL;
 import java.time.LocalDate;
 import java.util.Arrays;
@@ -16,12 +17,17 @@ import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
 import javafx.fxml.Initializable;
 import javafx.fxml.FXML;
+import javafx.geometry.Rectangle2D;
+import javafx.scene.control.Button;
 import javafx.scene.control.CheckBox;
 import javafx.scene.control.ComboBox;
 import javafx.scene.control.DatePicker;
 import javafx.scene.control.TableView;
 import javafx.scene.control.TextField;
 import javafx.scene.control.TextArea;
+import javafx.scene.layout.GridPane;
+import javafx.scene.layout.VBox;
+import javafx.stage.Screen;
         
 public class FormularioInicialController implements Initializable {
 
@@ -39,6 +45,9 @@ public class FormularioInicialController implements Initializable {
     DatePicker fecha;
     @FXML
     ComboBox<Integer> sala;
+    @FXML
+    Button volver;
+   
     
     
     @FXML 
@@ -50,11 +59,15 @@ public class FormularioInicialController implements Initializable {
     
     @Override
     public void initialize(URL url, ResourceBundle rb) {
+        
+       
+       
         configurarChecks();
         peliculaDAO = new PeliculaDAO();
         cargarPeliculasCartelera();
         configurarFecha();
         configurarComboBox();
+       
     } 
     
     
@@ -144,4 +157,8 @@ public class FormularioInicialController implements Initializable {
         sala.getItems().addAll(1, 2, 3, 4 , 5, 6);
     }
     
+    @FXML
+    private void volver() throws IOException{
+         App.setRoot("PantallaInicial");
+    }    
 }

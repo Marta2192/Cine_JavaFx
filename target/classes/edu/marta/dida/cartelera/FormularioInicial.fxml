@@ -23,7 +23,8 @@
 <?import javafx.scene.text.Font?>
 <?import javafx.scene.text.Text?>
 
-<VBox spacing="20" style="-fx-background-color: #d5f5e3;" xmlns="http://javafx.com/javafx/17" xmlns:fx="http://javafx.com/fxml/1" fx:controller="edu.marta.dida.cartelera.FormularioInicialController">
+
+<VBox fx:id="vb" prefHeight="600.0" prefWidth="820.0" spacing="20" style="-fx-background-color: #d5f5e3;" xmlns="http://javafx.com/javafx/17" xmlns:fx="http://javafx.com/fxml/1" fx:controller="edu.marta.dida.cartelera.FormularioInicialController">
     
     <padding>
         <Insets bottom="15" left="15" right="15" top="15" />
@@ -33,34 +34,35 @@
     
     <Text style="-fx-font-weight: bold;" text="Cines Os Cantóns" wrappingWidth="239.5703125">
         <font>
-            <Font name="Cambria" size="24.0" />
+            <Font name="Cambria" size="29.0" />
         </font>
               
     </Text>
-        <Button onAction="#add">
+        <Button onAction="#add" style="-fx-background-color: transparent;" translateX="50.0">
             <graphic>
                 <ImageView>
                     <Image url="@../../../../iconos/mas.png" />
                 </ImageView>
             </graphic>
         </Button>
-        <Button onAction="#edit">
+        <Button onAction="#edit" style="-fx-background-color: transparent;" translateX="50.0">
             <graphic>
                 <ImageView>
                     <Image url="@../../../../iconos/edit.png" />
                 </ImageView>
             </graphic>
         </Button>
-        <Button onAction="#delete">
+        <Button onAction="#delete" style="-fx-background-color: transparent;" translateX="50.0">
             <graphic>
                 <ImageView>
                     <Image url="@../../../../iconos/menos.png" />
                 </ImageView>
             </graphic>
         </Button>
+      <Button mnemonicParsing="false" onAction="#volver" text="Volver" translateX="310.0" />
     </ToolBar>
 
-<GridPane hgap="10.0" vgap="10">
+<GridPane  hgap="10.0" vgap="10">
     
     <padding>
         <Insets bottom="10" left="10" right="10" top="10" />
@@ -79,8 +81,8 @@
          <GridPane.margin>
             <Insets left="10.0" />
          </GridPane.margin></Label>
-    <CheckBox fx:id="siVoCheck" text="V.O." GridPane.columnIndex="3" GridPane.rowIndex="1" /> 
-    <CheckBox fx:id="noVoCheck" text="Doblada" GridPane.columnIndex="4" GridPane.rowIndex="1" />
+    <CheckBox fx:id="siVoCheck" text="V.O.S.E" GridPane.columnIndex="3" GridPane.rowIndex="1" /> 
+    <CheckBox fx:id="noVoCheck" text="Español" GridPane.columnIndex="4" GridPane.rowIndex="1" />
    
     
     <Label prefHeight="17.0" prefWidth="53.0" text="Fecha" GridPane.columnIndex="2" GridPane.rowIndex="2">
@@ -93,13 +95,14 @@
          <GridPane.margin>
             <Insets left="10.0" />
          </GridPane.margin></Label>
-    <ComboBox fx:id="sala" prefHeight="25.0" prefWidth="356.0" GridPane.columnIndex="3" GridPane.columnSpan="2" GridPane.rowIndex="3" />
+    <ComboBox fx:id="sala" prefHeight="25.0" prefWidth="97.0" GridPane.columnIndex="3" GridPane.columnSpan="2" GridPane.rowIndex="3" />
       <columnConstraints>
          <ColumnConstraints maxWidth="87.0" minWidth="49.0" prefWidth="87.0" />
          <ColumnConstraints maxWidth="473.0" minWidth="302.0" prefWidth="302.0" />
          <ColumnConstraints maxWidth="180.0" minWidth="60.0" prefWidth="117.0" />
          <ColumnConstraints maxWidth="282.0" minWidth="84.0" prefWidth="96.0" />
          <ColumnConstraints maxWidth="286.0" minWidth="105.0" prefWidth="131.0" />
+         <ColumnConstraints />
       </columnConstraints>
       <rowConstraints>
          <RowConstraints />
