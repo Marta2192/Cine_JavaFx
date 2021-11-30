@@ -92,7 +92,7 @@ public class FormularioInicialController implements Initializable {
             pelicula.setTitulo(titulo.getText());
             pelicula.setDirector(director.getText());
             pelicula.setSinopsis(sinopsis.getText());
-            pelicula.setIdioma(siVoCheck.isSelected()? 0 : 1);
+            pelicula.setIdioma(siVoCheck.isSelected()? 0 : 1); 
             pelicula.setFecha(fecha.getValue().toString());
             pelicula.setSala(sala.getValue());
             

@@ -4,6 +4,7 @@
  */
 package edu.marta.dida.cartelera;
 
+import edu.marta.dida.carteleraDAO.AdministradorDAO;
 import edu.marta.dida.carteleraDAO.PeliculaDAO;
 import java.io.IOException;
 import java.net.URL;
@@ -21,32 +22,38 @@ import javafx.scene.control.TextField;
 public class ControladorPantallaInicial implements Initializable{
     
     @FXML
-    TextField administrador;
+    TextField tfAdministrador;
     @FXML
-    PasswordField contrasenha;
+    PasswordField pfContrasenha;
     @FXML
     Button entrada;
+    Administrador administrador;
+    AdministradorDAO administradorDAO;
     
     @Override
     public void initialize(URL url, ResourceBundle rb) {
-        
+        administradorDAO = new AdministradorDAO();
+        administradorDAO.guardarUser(administrador);
     } 
     
     @FXML
     public void irSegundaPantalla() throws IOException{
-       App.setRoot("FormularioInicial");
+        
+        if(comprobarAdm()==true){
+            App.setRoot("FormularioInicial");
+        }
+       
                
     }
 
-    private void entrar() throws IOException {
-        //Si llamo a este método desde el #onAction del botón revienta la aplicación
-        if(administrador.getText().equals("marta")&& contrasenha.getText().equals("1234")){
-            System.out.println("Datos correctos");
-            
-         irSegundaPantalla();
-        }else{
-            System.out.println("Datos erróneos");
-        }
+    private boolean comprobarAdm() {
+        
+        administradorDAO = new AdministradorDAO();
+        Administrador objectoAdministrador = new Administrador(tfAdministrador.getText(), pfContrasenha.getText());
+        boolean loginOk = administradorDAO.loguearse(objectoAdministrador);
+        return loginOk;
     }
+      
+   
     
 }

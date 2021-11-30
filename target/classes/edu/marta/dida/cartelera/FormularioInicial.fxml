@@ -23,8 +23,7 @@
 <?import javafx.scene.text.Font?>
 <?import javafx.scene.text.Text?>
 
-
-<VBox fx:id="vb" prefHeight="600.0" prefWidth="820.0" spacing="20" style="-fx-background-color: #d5f5e3;" xmlns="http://javafx.com/javafx/17" xmlns:fx="http://javafx.com/fxml/1" fx:controller="edu.marta.dida.cartelera.FormularioInicialController">
+<VBox fx:id="vb" prefHeight="600.0" prefWidth="820.0" spacing="20" style="-fx-background-color: #000000;" xmlns="http://javafx.com/javafx/17" xmlns:fx="http://javafx.com/fxml/1" fx:controller="edu.marta.dida.cartelera.FormularioInicialController">
     
     <padding>
         <Insets bottom="15" left="15" right="15" top="15" />
@@ -32,75 +31,105 @@
     
  <ToolBar nodeOrientation="LEFT_TO_RIGHT" style="-fx-background-color: transparent;" HBox.hgrow="ALWAYS">
     
-    <Text style="-fx-font-weight: bold;" text="Cines Os Cantóns" wrappingWidth="239.5703125">
+    <Text fill="WHITE" style="-fx-font-weight: bold;" text="Cines Os Cantóns" wrappingWidth="239.5703125">
         <font>
-            <Font name="Cambria" size="29.0" />
+            <Font name="Cambria Bold" size="29.0" />
         </font>
               
     </Text>
         <Button onAction="#add" style="-fx-background-color: transparent;" translateX="50.0">
             <graphic>
                 <ImageView>
-                    <Image url="@../../../../iconos/mas.png" />
+                    <Image url="@../../../../iconos/add.png" />
                 </ImageView>
             </graphic>
         </Button>
         <Button onAction="#edit" style="-fx-background-color: transparent;" translateX="50.0">
             <graphic>
                 <ImageView>
-                    <Image url="@../../../../iconos/edit.png" />
+                    <Image url="@../../../../iconos/editar.png" />
                 </ImageView>
             </graphic>
         </Button>
         <Button onAction="#delete" style="-fx-background-color: transparent;" translateX="50.0">
             <graphic>
                 <ImageView>
-                    <Image url="@../../../../iconos/menos.png" />
+                    <Image url="@../../../../iconos/supr.png" />
                 </ImageView>
             </graphic>
         </Button>
-      <Button mnemonicParsing="false" onAction="#volver" text="Volver" translateX="310.0" />
+      <Button mnemonicParsing="false" onAction="#volver" prefHeight="32.0" prefWidth="55.0" text="Salir" translateX="250.0">
+         <opaqueInsets>
+            <Insets />
+         </opaqueInsets>
+         <font>
+            <Font name="System Bold" size="12.0" />
+         </font></Button>
     </ToolBar>
 
-<GridPane  hgap="10.0" vgap="10">
+<GridPane hgap="10.0" vgap="10">
     
     <padding>
         <Insets bottom="10" left="10" right="10" top="10" />
     </padding>
     
-    <Label text="Título" GridPane.rowIndex="1" />
+    <Label text="Título" textFill="WHITE" GridPane.rowIndex="1">
+         <font>
+            <Font name="System Bold" size="12.0" />
+         </font></Label>
     <TextField fx:id="titulo" GridPane.columnIndex="1" GridPane.rowIndex="1" />
     
-    <Label text="Director" GridPane.rowIndex="2" />
+    <Label text="Director" textFill="WHITE" GridPane.rowIndex="2">
+         <font>
+            <Font name="System Bold" size="12.0" />
+         </font></Label>
     <TextField fx:id="director" GridPane.columnIndex="1" GridPane.rowIndex="2" />
     
-    <Label text="Sinopsis" GridPane.rowIndex="3" />
+    <Label text="Sinopsis" textFill="WHITE" GridPane.rowIndex="3">
+         <font>
+            <Font name="System Bold" size="12.0" />
+         </font></Label>
     <TextArea fx:id="sinopsis" GridPane.columnIndex="1" GridPane.rowIndex="3" />
     
-    <Label text="Idioma" GridPane.columnIndex="2" GridPane.rowIndex="1">
+    <Label text="Idioma" textFill="WHITE" GridPane.columnIndex="2" GridPane.rowIndex="1">
          <GridPane.margin>
             <Insets left="10.0" />
-         </GridPane.margin></Label>
-    <CheckBox fx:id="siVoCheck" text="V.O.S.E" GridPane.columnIndex="3" GridPane.rowIndex="1" /> 
-    <CheckBox fx:id="noVoCheck" text="Español" GridPane.columnIndex="4" GridPane.rowIndex="1" />
+         </GridPane.margin>
+         <font>
+            <Font name="System Bold" size="12.0" />
+         </font></Label>
+    <CheckBox fx:id="siVoCheck" text="V.O.S.E" textFill="WHITE" GridPane.columnIndex="3" GridPane.rowIndex="1">
+         <font>
+            <Font name="System Bold" size="12.0" />
+         </font></CheckBox> 
+    <CheckBox fx:id="noVoCheck" text="Español" textFill="WHITE" GridPane.columnIndex="4" GridPane.rowIndex="1">
+         <font>
+            <Font name="System Bold" size="12.0" />
+         </font></CheckBox>
    
     
-    <Label prefHeight="17.0" prefWidth="53.0" text="Fecha" GridPane.columnIndex="2" GridPane.rowIndex="2">
+    <Label prefHeight="17.0" prefWidth="53.0" text="Fecha" textFill="WHITE" GridPane.columnIndex="2" GridPane.rowIndex="2">
          <GridPane.margin>
             <Insets left="10.0" />
-         </GridPane.margin></Label>
+         </GridPane.margin>
+         <font>
+            <Font name="System Bold" size="12.0" />
+         </font></Label>
     <DatePicker fx:id="fecha" prefHeight="25.0" prefWidth="235.0" GridPane.columnIndex="3" GridPane.columnSpan="3" GridPane.rowIndex="2" />
     
-    <Label text="Sala" GridPane.columnIndex="2" GridPane.rowIndex="3">
+    <Label text="Sala" textFill="WHITE" GridPane.columnIndex="2" GridPane.rowIndex="3">
          <GridPane.margin>
             <Insets left="10.0" />
-         </GridPane.margin></Label>
+         </GridPane.margin>
+         <font>
+            <Font name="System Bold" size="12.0" />
+         </font></Label>
     <ComboBox fx:id="sala" prefHeight="25.0" prefWidth="97.0" GridPane.columnIndex="3" GridPane.columnSpan="2" GridPane.rowIndex="3" />
       <columnConstraints>
          <ColumnConstraints maxWidth="87.0" minWidth="49.0" prefWidth="87.0" />
          <ColumnConstraints maxWidth="473.0" minWidth="302.0" prefWidth="302.0" />
-         <ColumnConstraints maxWidth="180.0" minWidth="60.0" prefWidth="117.0" />
-         <ColumnConstraints maxWidth="282.0" minWidth="84.0" prefWidth="96.0" />
+         <ColumnConstraints maxWidth="180.0" minWidth="60.0" prefWidth="85.0" />
+         <ColumnConstraints maxWidth="282.0" minWidth="84.0" prefWidth="122.0" />
          <ColumnConstraints maxWidth="286.0" minWidth="105.0" prefWidth="131.0" />
          <ColumnConstraints />
       </columnConstraints>
@@ -114,7 +143,7 @@
 </GridPane>
 
 <StackPane HBox.hgrow="ALWAYS">
-    <TableView fx:id="tablaPeliculas">
+    <TableView fx:id="tablaPeliculas" style="-fx-background-color:  white ;">
         <columns>
             <TableColumn prefWidth="50.0" text="Id">
                 <cellValueFactory>
