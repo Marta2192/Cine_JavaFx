@@ -63,12 +63,12 @@ public class AdministradorDAO {
                     String sql = "SELECT contrasenha FROM administrador WHERE nombreAdm LIKE'" + administrador.getNombreAdm() + "'";
                     
                     ResultSet resultados = statement.executeQuery(sql);
-                    System.err.println(resultados);
+                    
                   
                    while(resultados.next()) {
                        
                         if(resultados.getString(1).equals(administrador.getContrasenha())){
-                            System.err.println(resultados.getString(1));
+                            
                             loginOk = true;
                         }
                     }
