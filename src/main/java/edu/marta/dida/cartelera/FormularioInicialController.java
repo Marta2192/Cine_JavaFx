@@ -22,6 +22,7 @@ import javafx.scene.control.Button;
 import javafx.scene.control.CheckBox;
 import javafx.scene.control.ComboBox;
 import javafx.scene.control.DatePicker;
+import javafx.scene.control.RadioButton;
 import javafx.scene.control.TableView;
 import javafx.scene.control.TextField;
 import javafx.scene.control.TextArea;
@@ -37,16 +38,16 @@ public class FormularioInicialController implements Initializable {
     TextField director;
     @FXML
     TextArea sinopsis;
-    @FXML 
-    CheckBox siVoCheck;
-    @FXML 
-    CheckBox noVoCheck;
     @FXML
     DatePicker fecha;
     @FXML
     ComboBox<Integer> sala;
     @FXML
     Button volver;
+    @FXML
+    RadioButton rb1;
+    @FXML
+    RadioButton rb2;
    
     
     
@@ -59,10 +60,8 @@ public class FormularioInicialController implements Initializable {
     
     @Override
     public void initialize(URL url, ResourceBundle rb) {
-        
        
-       
-        configurarChecks();
+        configurarRadio();
         peliculaDAO = new PeliculaDAO();
         cargarPeliculasCartelera();
         configurarFecha();
@@ -71,19 +70,7 @@ public class FormularioInicialController implements Initializable {
     } 
     
     
-     private void configurarChecks() {
-         siVoCheck.setSelected(true);
-        siVoCheck.selectedProperty().addListener((obs, oldV, newV) -> {
-            if(newV) {
-               noVoCheck.setSelected(!newV);
-            }
-        });
-        noVoCheck.selectedProperty().addListener((obs, oldV, newV) -> {
-            if(newV) {
-               siVoCheck.setSelected(!newV);
-            }
-        });
-    }
+     
     
     @FXML
     public void add(){
@@ -92,7 +79,7 @@ public class FormularioInicialController implements Initializable {
             pelicula.setTitulo(titulo.getText());
             pelicula.setDirector(director.getText());
             pelicula.setSinopsis(sinopsis.getText());
-            pelicula.setIdioma(siVoCheck.isSelected()? 0 : 1); 
+            pelicula.setIdioma(rb1.isSelected()? 0 : 1); 
             pelicula.setFecha(fecha.getValue().toString());
             pelicula.setSala(sala.getValue());
             
@@ -109,7 +96,7 @@ public class FormularioInicialController implements Initializable {
             titulo.clear();
             director.clear();
             sinopsis.clear();
-            siVoCheck.setSelected(true);
+            rb1.setSelected(true);
             configurarFecha();
             sala.setValue(-1);
     } 
@@ -120,11 +107,12 @@ public class FormularioInicialController implements Initializable {
         titulo.setText(pelicula.getTitulo());
         director.setText(pelicula.getDirector());
         sinopsis.setText(pelicula.getSinopsis());
-        if(pelicula.getIdioma() == 0){
-            siVoCheck.setSelected(true); 
-        } else {
-            noVoCheck.setSelected(true); 
-        }      
+       
+       if(pelicula.getIdioma() == 0){
+           rb1.setSelected(true);
+       }else {
+            rb2.setSelected(true); 
+        }
         String[] fecha = pelicula.getFecha().split("-");
         List<Integer> datosFecha = Arrays.asList(fecha).stream().map(dato -> Integer.parseInt(dato)).collect(Collectors.toList());
        
@@ -161,4 +149,19 @@ public class FormularioInicialController implements Initializable {
     private void volver() throws IOException{
          App.setRoot("PantallaInicial");
     }    
+
+    private void configurarRadio() {
+      
+       rb1.setSelected(true);
+        rb1.selectedProperty().addListener((obs, oldV, newV) -> {
+            if(newV) {
+               rb2.setSelected(!newV);
+            }
+        });
+        rb2.selectedProperty().addListener((obs, oldV, newV) -> {
+            if(newV) {
+               rb1.setSelected(!newV);
+            }
+        });
+    }
 }

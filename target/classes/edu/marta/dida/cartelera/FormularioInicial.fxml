@@ -2,7 +2,6 @@
 
 <?import javafx.geometry.Insets?>
 <?import javafx.scene.control.Button?>
-<?import javafx.scene.control.CheckBox?>
 <?import javafx.scene.control.ComboBox?>
 <?import javafx.scene.control.DatePicker?>
 <?import javafx.scene.control.Label?>
@@ -22,6 +21,7 @@
 <?import javafx.scene.layout.VBox?>
 <?import javafx.scene.text.Font?>
 <?import javafx.scene.text.Text?>
+<?import javafx.scene.control.RadioButton?>
 
 <VBox fx:id="vb" prefHeight="600.0" prefWidth="820.0" spacing="20" style="-fx-background-color: #000000;" xmlns="http://javafx.com/javafx/17" xmlns:fx="http://javafx.com/fxml/1" fx:controller="edu.marta.dida.cartelera.FormularioInicialController">
     
@@ -97,15 +97,15 @@
          </GridPane.margin>
          <font>
             <Font name="System Bold" size="12.0" />
-         </font></Label>
-    <CheckBox fx:id="siVoCheck" text="V.O.S.E" textFill="WHITE" GridPane.columnIndex="3" GridPane.rowIndex="1">
+         </font></Label>   
+         <RadioButton fx:id="rb1" text="V.O.S.E" textFill="WHITE" GridPane.columnIndex="3" GridPane.rowIndex="1">
          <font>
             <Font name="System Bold" size="12.0" />
-         </font></CheckBox> 
-    <CheckBox fx:id="noVoCheck" text="Español" textFill="WHITE" GridPane.columnIndex="4" GridPane.rowIndex="1">
+         </font></RadioButton> 
+    <RadioButton fx:id="rb2" text="Español" textFill="WHITE" GridPane.columnIndex="4" GridPane.rowIndex="1">
          <font>
             <Font name="System Bold" size="12.0" />
-         </font></CheckBox>
+         </font></RadioButton>
    
     
     <Label prefHeight="17.0" prefWidth="53.0" text="Fecha" textFill="WHITE" GridPane.columnIndex="2" GridPane.rowIndex="2">
