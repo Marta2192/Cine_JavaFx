@@ -11,6 +11,7 @@ import java.net.URL;
 import java.time.LocalDate;
 import java.util.Arrays;
 import java.util.List;
+import java.util.Map;
 import java.util.ResourceBundle;
 import java.util.stream.Collectors;
 import javafx.collections.FXCollections;
@@ -18,6 +19,7 @@ import javafx.collections.ObservableList;
 import javafx.fxml.Initializable;
 import javafx.fxml.FXML;
 import javafx.geometry.Rectangle2D;
+import javafx.scene.chart.PieChart;
 import javafx.scene.control.Button;
 import javafx.scene.control.CheckBox;
 import javafx.scene.control.ComboBox;
@@ -45,9 +47,12 @@ public class FormularioInicialController implements Initializable {
     @FXML
     Button volver;
     @FXML
+    Button cargar;
+    @FXML
     RadioButton rb1;
     @FXML
     RadioButton rb2;
+    
    
     
     
@@ -66,11 +71,11 @@ public class FormularioInicialController implements Initializable {
         cargarPeliculasCartelera();
         configurarFecha();
         configurarComboBox();
+        
        
     } 
     
     
-     
     
     @FXML
     public void add(){
@@ -148,6 +153,11 @@ public class FormularioInicialController implements Initializable {
     @FXML
     private void volver() throws IOException{
          App.setRoot("PantallaInicial");
+    }    
+    
+    @FXML
+    private void cargar() throws IOException{
+         App.setRoot("PelisPorSala");
     }    
 
     private void configurarRadio() {

@@ -16,6 +16,7 @@ import javafx.fxml.Initializable;
 import javafx.scene.control.Button;
 import javafx.scene.control.PasswordField;
 import javafx.scene.control.TextField;
+import javafx.scene.layout.BorderPane;
 
 
  
@@ -34,6 +35,9 @@ public class ControladorPantallaInicial implements Initializable{
     public void initialize(URL url, ResourceBundle rb) {
         administradorDAO = new AdministradorDAO();
         administradorDAO.guardarUser(administrador);
+        //NO FUNCIONA
+//        BorderPane root = new BorderPane();
+//        root.setStyle("-fx-background-image:@../../../../imagenInicial/portada.jpg");
     } 
     
     @FXML

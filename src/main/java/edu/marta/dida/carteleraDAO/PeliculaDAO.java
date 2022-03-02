@@ -10,7 +10,9 @@ import java.sql.DriverManager;
 import java.sql.ResultSet;
 import java.sql.Statement;
 import java.util.ArrayList;
+import java.util.HashMap;
 import java.util.List;
+import java.util.Map;
 
 /**
  *
@@ -113,6 +115,34 @@ public class PeliculaDAO {
        } catch (Exception e){
            throw new RuntimeException("Ocurrió un error al eliminar la película seleccionada: " + e.getMessage());
        }
+    }
+//     empleados por departamento
+//     peliculas por sala
+     
+   public Map<String, Integer> contarPelisPorSala() {
+       List<Pelicula> peliculas = buscarPelis();
+       Map<String, Integer> pelisPorSala = new HashMap<>();
+       try (Connection conexionDB = DriverManager.getConnection(URL_CONEXION, USUARIO_BDD, PASSWORD_BDD)){
+                    Statement statement = conexionDB.createStatement();
+                    String sql = "SELECT sala, count(*) as cantidad FROM pelicula GROUP BY sala";
+                    ResultSet resultSet = statement.executeQuery(sql);
+                    while(resultSet.next()){
+                        int sala = resultSet.getInt("sala");
+                        int cantidadPeliculas = resultSet.getInt("cantidad");
+                        
+                        for (Pelicula pelicula : peliculas) {
+                            if(pelicula.getSala() == sala){
+                                pelisPorSala.put(pelicula.getTitulo(), cantidadPeliculas);
+                                break;
+                            }
+                        }
+                                
+                    }
+
+          } catch (Exception e){
+           throw new RuntimeException("Ocurrió un error al contar el número de pelis por sala: " + e.getMessage());
+       }
+        return pelisPorSala;
     }
     
 }
