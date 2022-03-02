@@ -5,6 +5,7 @@
 <?import javafx.scene.control.ComboBox?>
 <?import javafx.scene.control.DatePicker?>
 <?import javafx.scene.control.Label?>
+<?import javafx.scene.control.RadioButton?>
 <?import javafx.scene.control.TableColumn?>
 <?import javafx.scene.control.TableView?>
 <?import javafx.scene.control.TextArea?>
@@ -21,7 +22,6 @@
 <?import javafx.scene.layout.VBox?>
 <?import javafx.scene.text.Font?>
 <?import javafx.scene.text.Text?>
-<?import javafx.scene.control.RadioButton?>
 
 <VBox fx:id="vb" prefHeight="600.0" prefWidth="820.0" spacing="20" style="-fx-background-color: #000000;" xmlns="http://javafx.com/javafx/17" xmlns:fx="http://javafx.com/fxml/1" fx:controller="edu.marta.dida.cartelera.FormularioInicialController">
     
@@ -31,35 +31,38 @@
     
  <ToolBar nodeOrientation="LEFT_TO_RIGHT" style="-fx-background-color: transparent;" HBox.hgrow="ALWAYS">
     
-    <Text fill="WHITE" style="-fx-font-weight: bold;" text="Cines Os Cantóns" wrappingWidth="239.5703125">
+    <Text fill="WHITE" style="-fx-font-weight: bold;" text="Cines Os Cantóns" translateX="1.0" wrappingWidth="239.5703125">
         <font>
             <Font name="Cambria Bold" size="29.0" />
         </font>
               
     </Text>
-        <Button onAction="#add" style="-fx-background-color: transparent;" translateX="50.0">
+        <Button onAction="#add" style="-fx-background-color: transparent;" translateX="1.0">
             <graphic>
                 <ImageView>
                     <Image url="@../../../../iconos/add.png" />
                 </ImageView>
             </graphic>
         </Button>
-        <Button onAction="#edit" style="-fx-background-color: transparent;" translateX="50.0">
+        <Button onAction="#edit" style="-fx-background-color: transparent;" translateX="1.0">
             <graphic>
                 <ImageView>
                     <Image url="@../../../../iconos/editar.png" />
                 </ImageView>
             </graphic>
         </Button>
-        <Button onAction="#delete" style="-fx-background-color: transparent;" translateX="50.0">
+        <Button onAction="#delete" style="-fx-background-color: transparent;" translateX="1.0">
             <graphic>
                 <ImageView>
                     <Image url="@../../../../iconos/supr.png" />
                 </ImageView>
             </graphic>
         </Button>
-        <Button onAction="#cargar">Cargar Chart</Button>
-      <Button mnemonicParsing="false" onAction="#volver" prefHeight="32.0" prefWidth="55.0" text="Salir" translateX="250.0">
+        <Button onAction="#cargar" prefHeight="32.0" prefWidth="100.0" text="Cargar Chart" translateX="120.0" translateY="6.0">
+         <font>
+            <Font name="System Bold" size="12.0" />
+         </font></Button>
+      <Button mnemonicParsing="false" onAction="#volver" prefHeight="32.0" prefWidth="55.0" text="Salir" translateX="180.0" translateY="6.0">
          <opaqueInsets>
             <Insets />
          </opaqueInsets>

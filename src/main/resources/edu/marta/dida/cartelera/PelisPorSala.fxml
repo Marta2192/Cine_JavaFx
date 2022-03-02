@@ -1,14 +1,12 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
-<?import java.lang.*?>
-<?import java.util.*?>
-<?import javafx.scene.*?>
-<?import javafx.scene.control.*?>
-<?import javafx.scene.layout.*?>
 <?import javafx.scene.chart.PieChart?>
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.layout.AnchorPane?>
 
-<AnchorPane id="AnchorPane" prefHeight="400.0" prefWidth="600.0" xmlns:fx="http://javafx.com/fxml/1" fx:controller="edu.marta.dida.cartelera.PelisPorSala">
-    <Button onAction="#cargarDatosEnChart"></Button>
-    <PieChart fx:id="chart" title="Peliculas por sala"/>
+<AnchorPane id="AnchorPane" prefHeight="400.0" prefWidth="600.0" xmlns="http://javafx.com/javafx/17" xmlns:fx="http://javafx.com/fxml/1" fx:controller="edu.marta.dida.cartelera.PelisPorSala">
+<!--    <Button onAction="#cargarDatosEnChart">HOla</Button>-->
+    <Button id="volver" alignment="CENTER_RIGHT" onAction="#volver" prefHeight="32.0" prefWidth="100.0" translateX="500.0" translateY="5.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="550.0">Volver</Button> 
+    <PieChart fx:id="chart" title="Número de Películas por Sala" />
         
 </AnchorPane>

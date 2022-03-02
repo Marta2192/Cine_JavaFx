@@ -35,9 +35,7 @@ public class ControladorPantallaInicial implements Initializable{
     public void initialize(URL url, ResourceBundle rb) {
         administradorDAO = new AdministradorDAO();
         administradorDAO.guardarUser(administrador);
-        //NO FUNCIONA
-//        BorderPane root = new BorderPane();
-//        root.setStyle("-fx-background-image:@../../../../imagenInicial/portada.jpg");
+
     } 
     
     @FXML

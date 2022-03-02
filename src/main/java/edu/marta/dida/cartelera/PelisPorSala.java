@@ -5,6 +5,7 @@
 package edu.marta.dida.cartelera;
 
 import edu.marta.dida.carteleraDAO.PeliculaDAO;
+import java.io.IOException;
 import java.net.URL;
 import java.util.Map;
 import java.util.ResourceBundle;
@@ -19,7 +20,13 @@ import javafx.scene.control.Button;
  *
  * @author user
  */
+
+
+
 public class PelisPorSala implements Initializable{
+    
+    @FXML
+    Button volver;
     
     @FXML
     private PieChart chart;
@@ -47,5 +54,10 @@ public class PelisPorSala implements Initializable{
         chart.setData(datosParaChart);
     }
      
+   @FXML
+    private void volver() throws IOException{
+         App.setRoot("FormularioInicial");
+    }   
+    
     
 }

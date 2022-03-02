@@ -116,8 +116,7 @@ public class PeliculaDAO {
            throw new RuntimeException("Ocurrió un error al eliminar la película seleccionada: " + e.getMessage());
        }
     }
-//     empleados por departamento
-//     peliculas por sala
+
      
    public Map<String, Integer> contarPelisPorSala() {
        List<Pelicula> peliculas = buscarPelis();
@@ -132,7 +131,7 @@ public class PeliculaDAO {
                         
                         for (Pelicula pelicula : peliculas) {
                             if(pelicula.getSala() == sala){
-                                pelisPorSala.put(pelicula.getTitulo(), cantidadPeliculas);
+                                pelisPorSala.put("Sala " + String.valueOf(pelicula.getSala()), cantidadPeliculas);
                                 break;
                             }
                         }
