@@ -31,6 +31,9 @@ public class PelisPorSala implements Initializable{
     @FXML
     private PieChart chart;
     
+    @FXML
+    Button cargar;
+    
     
     
     private PeliculaDAO peliculaDAO;
@@ -42,6 +45,7 @@ public class PelisPorSala implements Initializable{
         cargarDatosEnChart();
     }
 
+    @FXML
    public void cargarDatosEnChart(){
         Map<String, Integer> pelisPorSala = peliculaDAO.contarPelisPorSala();
         

@@ -1,2 +1,8 @@
+edu\marta\dida\cartelera\PelisPorSala.class
 edu\marta\dida\cartelera\FormularioInicialController.class
+edu\marta\dida\carteleraDAO\AdministradorDAO.class
+edu\marta\dida\carteleraDAO\PeliculaDAO.class
+edu\marta\dida\cartelera\Administrador.class
+edu\marta\dida\cartelera\ControladorPantallaInicial.class
+edu\marta\dida\cartelera\Pelicula.class
 edu\marta\dida\cartelera\App.class

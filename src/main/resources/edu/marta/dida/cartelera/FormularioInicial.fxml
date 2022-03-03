@@ -31,9 +31,9 @@
     
  <ToolBar nodeOrientation="LEFT_TO_RIGHT" style="-fx-background-color: transparent;" HBox.hgrow="ALWAYS">
     
-    <Text fill="WHITE" style="-fx-font-weight: bold;" text="Cines Os Cantóns" translateX="1.0" wrappingWidth="239.5703125">
+    <Text fill="WHITE" style="-fx-font-weight: bold;" text="CINEMA" translateX="1.0" wrappingWidth="239.5703125">
         <font>
-            <Font name="Cambria Bold" size="29.0" />
+            <Font name="Copperplate Gothic Bold" size="42.0" />
         </font>
               
     </Text>
@@ -58,16 +58,16 @@
                 </ImageView>
             </graphic>
         </Button>
-        <Button onAction="#cargar" prefHeight="32.0" prefWidth="100.0" text="Cargar Chart" translateX="120.0" translateY="6.0">
+        <Button onAction="#cargar" prefHeight="32.0" prefWidth="120.0" text="Estadísticas" translateX="120.0" translateY="6.0">
          <font>
-            <Font name="System Bold" size="12.0" />
+            <Font name="Copperplate Gothic Bold" size="12.0" />
          </font></Button>
-      <Button mnemonicParsing="false" onAction="#volver" prefHeight="32.0" prefWidth="55.0" text="Salir" translateX="180.0" translateY="6.0">
+      <Button mnemonicParsing="false" onAction="#volver" prefHeight="32.0" prefWidth="55.0" text="Salir" translateX="170.0" translateY="6.0">
          <opaqueInsets>
             <Insets />
          </opaqueInsets>
          <font>
-            <Font name="System Bold" size="12.0" />
+            <Font name="Copperplate Gothic Bold" size="12.0" />
          </font></Button>
     </ToolBar>
 
@@ -79,19 +79,19 @@
     
     <Label text="Título" textFill="WHITE" GridPane.rowIndex="1">
          <font>
-            <Font name="System Bold" size="12.0" />
+            <Font name="Copperplate Gothic Bold" size="12.0" />
          </font></Label>
     <TextField fx:id="titulo" GridPane.columnIndex="1" GridPane.rowIndex="1" />
     
     <Label text="Director" textFill="WHITE" GridPane.rowIndex="2">
          <font>
-            <Font name="System Bold" size="12.0" />
+            <Font name="Copperplate Gothic Bold" size="12.0" />
          </font></Label>
     <TextField fx:id="director" GridPane.columnIndex="1" GridPane.rowIndex="2" />
     
     <Label text="Sinopsis" textFill="WHITE" GridPane.rowIndex="3">
          <font>
-            <Font name="System Bold" size="12.0" />
+            <Font name="Copperplate Gothic Bold" size="12.0" />
          </font></Label>
     <TextArea fx:id="sinopsis" GridPane.columnIndex="1" GridPane.rowIndex="3" />
     
@@ -100,15 +100,15 @@
             <Insets left="10.0" />
          </GridPane.margin>
          <font>
-            <Font name="System Bold" size="12.0" />
+            <Font name="Copperplate Gothic Bold" size="12.0" />
          </font></Label>   
          <RadioButton fx:id="rb1" text="V.O.S.E" textFill="WHITE" GridPane.columnIndex="3" GridPane.rowIndex="1">
          <font>
-            <Font name="System Bold" size="12.0" />
+            <Font name="Copperplate Gothic Bold" size="12.0" />
          </font></RadioButton> 
     <RadioButton fx:id="rb2" text="Español" textFill="WHITE" GridPane.columnIndex="4" GridPane.rowIndex="1">
          <font>
-            <Font name="System Bold" size="12.0" />
+            <Font name="Copperplate Gothic Bold" size="12.0" />
          </font></RadioButton>
    
     
@@ -117,7 +117,7 @@
             <Insets left="10.0" />
          </GridPane.margin>
          <font>
-            <Font name="System Bold" size="12.0" />
+            <Font name="Copperplate Gothic Bold" size="12.0" />
          </font></Label>
     <DatePicker fx:id="fecha" prefHeight="25.0" prefWidth="235.0" GridPane.columnIndex="3" GridPane.columnSpan="3" GridPane.rowIndex="2" />
     
@@ -126,7 +126,7 @@
             <Insets left="10.0" />
          </GridPane.margin>
          <font>
-            <Font name="System Bold" size="12.0" />
+            <Font name="Copperplate Gothic Bold" size="12.0" />
          </font></Label>
     <ComboBox fx:id="sala" prefHeight="25.0" prefWidth="97.0" GridPane.columnIndex="3" GridPane.columnSpan="2" GridPane.rowIndex="3" />
       <columnConstraints>
