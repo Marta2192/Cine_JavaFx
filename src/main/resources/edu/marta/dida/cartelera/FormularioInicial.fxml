@@ -5,6 +5,9 @@
 <?import javafx.scene.control.ComboBox?>
 <?import javafx.scene.control.DatePicker?>
 <?import javafx.scene.control.Label?>
+<?import javafx.scene.control.Menu?>
+<?import javafx.scene.control.MenuBar?>
+<?import javafx.scene.control.MenuItem?>
 <?import javafx.scene.control.RadioButton?>
 <?import javafx.scene.control.TableColumn?>
 <?import javafx.scene.control.TableView?>
@@ -15,6 +18,7 @@
 <?import javafx.scene.effect.Glow?>
 <?import javafx.scene.effect.Light.Distant?>
 <?import javafx.scene.effect.Lighting?>
+<?import javafx.scene.effect.Shadow?>
 <?import javafx.scene.image.Image?>
 <?import javafx.scene.image.ImageView?>
 <?import javafx.scene.layout.ColumnConstraints?>
@@ -32,12 +36,50 @@
         <Insets bottom="15" left="15" right="15" top="15" />
     </padding> 
     
+    <MenuBar>
+        <Menu style="-fx-font-weight: bold; -fx-font-size: 16; -fx-font-family: &quot;Copperplate Gothic Bold&quot;;" text="INICIO">
+            <MenuItem onAction="#cargar" text="Gráfico Salas" />
+            <MenuItem onAction="#volver" text="Desconectar" />
+        </Menu>
+        <Menu style="-fx-font-weight: bold; -fx-font-size: 16; -fx-font-family: &quot;Copperplate Gothic Bold&quot;;" text="SOCIOS">
+            <MenuItem text="Mostrar Socios" />
+        </Menu>
+      <effect>
+         <Glow>
+            <input>
+               <Lighting>
+                  <bumpInput>
+                     <Shadow />
+                  </bumpInput>
+                  <light>
+                     
+                  </light>
+               </Lighting>
+            </input>
+         </Glow>
+      </effect>
+    </MenuBar>
+    
  <ToolBar nodeOrientation="LEFT_TO_RIGHT" style="-fx-background-color: transparent;" HBox.hgrow="ALWAYS">
     
     <Text fill="WHITE" style="-fx-font-weight: bold;" text="CINEMA" translateX="1.0" translateY="6.0" wrappingWidth="239.5703125">
         <font>
             <Font name="Copperplate Gothic Bold" size="42.0" />
         </font>
+         <effect>
+            <Glow>
+               <input>
+                  <Lighting>
+                     <bumpInput>
+                        <Shadow />
+                     </bumpInput>
+                     <light>
+                        
+                     </light>
+                  </Lighting>
+               </input>
+            </Glow>
+         </effect>
               
     </Text>
         <Button onAction="#add" style="-fx-background-color: transparent;" translateX="1.0">
@@ -47,10 +89,13 @@
                <effect>
                   <Glow>
                      <input>
-                        <Lighting bumpInput="$null">
+                        <Lighting>
                            <light>
-                              <Light.Distant />
+                              
                            </light>
+                           <bumpInput>
+                              <Shadow />
+                           </bumpInput>
                         </Lighting>
                      </input>
                   </Glow>
@@ -65,10 +110,13 @@
                <effect>
                   <Glow>
                      <input>
-                        <Lighting bumpInput="$null">
+                        <Lighting>
                            <light>
-                              <Light.Distant />
+                             
                            </light>
+                           <bumpInput>
+                              <Shadow />
+                           </bumpInput>
                         </Lighting>
                      </input>
                   </Glow>
@@ -83,10 +131,13 @@
                <effect>
                   <Glow>
                      <input>
-                        <Lighting bumpInput="$null">
+                        <Lighting>
                            <light>
-                              <Light.Distant />
+                             
                            </light>
+                           <bumpInput>
+                              <Shadow />
+                           </bumpInput>
                         </Lighting>
                      </input>
                   </Glow>
@@ -94,17 +145,6 @@
                 </ImageView>
             </graphic>
         </Button>
-        <Button onAction="#cargar" prefHeight="32.0" prefWidth="120.0" text="Estadísticas" translateX="120.0" translateY="6.0">
-         <font>
-            <Font name="Copperplate Gothic Bold" size="12.0" />
-         </font></Button>
-      <Button mnemonicParsing="false" onAction="#volver" prefHeight="32.0" prefWidth="55.0" text="Salir" translateX="170.0" translateY="6.0">
-         <opaqueInsets>
-            <Insets />
-         </opaqueInsets>
-         <font>
-            <Font name="Copperplate Gothic Bold" size="12.0" />
-         </font></Button>
     </ToolBar>
 
 <GridPane hgap="10.0" vgap="10">
@@ -116,20 +156,80 @@
     <Label text="Título" textFill="WHITE" GridPane.rowIndex="1">
          <font>
             <Font name="Copperplate Gothic Bold" size="12.0" />
-         </font></Label>
-    <TextField fx:id="titulo" GridPane.columnIndex="1" GridPane.rowIndex="1" />
+         </font>
+         <effect>
+            <Glow>
+               <input>
+                  <Lighting>
+                     <bumpInput>
+                        <Shadow />
+                     </bumpInput>
+                     <light>
+                        <Light.Distant />
+                     </light>
+                  </Lighting>
+               </input>
+            </Glow>
+         </effect></Label>
+    <TextField fx:id="titulo" GridPane.columnIndex="1" GridPane.rowIndex="1">
+         <effect>
+            <Glow />
+         </effect>
+         <font>
+            <Font name="Copperplate Gothic Bold" size="12.0" />
+         </font></TextField>
     
     <Label text="Director" textFill="WHITE" GridPane.rowIndex="2">
          <font>
             <Font name="Copperplate Gothic Bold" size="12.0" />
-         </font></Label>
-    <TextField fx:id="director" GridPane.columnIndex="1" GridPane.rowIndex="2" />
+         </font>
+         <effect>
+            <Glow>
+               <input>
+                  <Lighting>
+                     <bumpInput>
+                        <Shadow />
+                     </bumpInput>
+                     <light>
+                        <Light.Distant />
+                     </light>
+                  </Lighting>
+               </input>
+            </Glow>
+         </effect></Label>
+    <TextField fx:id="director" GridPane.columnIndex="1" GridPane.rowIndex="2">
+         <effect>
+            <Glow />
+         </effect>
+         <font>
+            <Font name="Copperplate Gothic Bold" size="12.0" />
+         </font></TextField>
     
     <Label text="Sinopsis" textFill="WHITE" GridPane.rowIndex="3">
          <font>
             <Font name="Copperplate Gothic Bold" size="12.0" />
-         </font></Label>
-    <TextArea fx:id="sinopsis" GridPane.columnIndex="1" GridPane.rowIndex="3" />
+         </font>
+         <effect>
+            <Glow>
+               <input>
+                  <Lighting>
+                     <bumpInput>
+                        <Shadow />
+                     </bumpInput>
+                     <light>
+                        <Light.Distant />
+                     </light>
+                  </Lighting>
+               </input>
+            </Glow>
+         </effect></Label>
+    <TextArea fx:id="sinopsis" GridPane.columnIndex="1" GridPane.rowIndex="3">
+         <effect>
+            <Glow />
+         </effect>
+         <font>
+            <Font name="Copperplate Gothic Bold" size="12.0" />
+         </font></TextArea>
     
     <Label text="Idioma" textFill="WHITE" GridPane.columnIndex="2" GridPane.rowIndex="1">
          <GridPane.margin>
@@ -137,15 +237,35 @@
          </GridPane.margin>
          <font>
             <Font name="Copperplate Gothic Bold" size="12.0" />
-         </font></Label>   
+         </font>
+         <effect>
+            <Glow>
+               <input>
+                  <Lighting>
+                     <bumpInput>
+                        <Shadow />
+                     </bumpInput>
+                     <light>
+                        <Light.Distant />
+                     </light>
+                  </Lighting>
+               </input>
+            </Glow>
+         </effect></Label>   
          <RadioButton fx:id="rb1" text="V.O.S.E" textFill="WHITE" GridPane.columnIndex="3" GridPane.rowIndex="1">
          <font>
             <Font name="Copperplate Gothic Bold" size="12.0" />
-         </font></RadioButton> 
+         </font>
+         <effect>
+            <Glow />
+         </effect></RadioButton> 
     <RadioButton fx:id="rb2" text="Español" textFill="WHITE" GridPane.columnIndex="4" GridPane.rowIndex="1">
          <font>
             <Font name="Copperplate Gothic Bold" size="12.0" />
-         </font></RadioButton>
+         </font>
+         <effect>
+            <Glow />
+         </effect></RadioButton>
    
     
     <Label prefHeight="17.0" prefWidth="53.0" text="Fecha" textFill="WHITE" GridPane.columnIndex="2" GridPane.rowIndex="2">
@@ -154,8 +274,25 @@
          </GridPane.margin>
          <font>
             <Font name="Copperplate Gothic Bold" size="12.0" />
-         </font></Label>
-    <DatePicker fx:id="fecha" prefHeight="25.0" prefWidth="235.0" GridPane.columnIndex="3" GridPane.columnSpan="3" GridPane.rowIndex="2" />
+         </font>
+         <effect>
+            <Glow>
+               <input>
+                  <Lighting>
+                     <bumpInput>
+                        <Shadow />
+                     </bumpInput>
+                     <light>
+                        <Light.Distant />
+                     </light>
+                  </Lighting>
+               </input>
+            </Glow>
+         </effect></Label>
+    <DatePicker fx:id="fecha" prefHeight="25.0" prefWidth="235.0" style="-fx-font-family: &quot;name=&quot;Copperplate Gothic Bold&quot;&quot;;" GridPane.columnIndex="3" GridPane.columnSpan="3" GridPane.rowIndex="2">
+         <effect>
+            <Glow />
+         </effect></DatePicker>
     
     <Label text="Sala" textFill="WHITE" GridPane.columnIndex="2" GridPane.rowIndex="3">
          <GridPane.margin>
@@ -163,8 +300,25 @@
          </GridPane.margin>
          <font>
             <Font name="Copperplate Gothic Bold" size="12.0" />
-         </font></Label>
-    <ComboBox fx:id="sala" prefHeight="25.0" prefWidth="97.0" GridPane.columnIndex="3" GridPane.columnSpan="2" GridPane.rowIndex="3" />
+         </font>
+         <effect>
+            <Glow>
+               <input>
+                  <Lighting>
+                     <bumpInput>
+                        <Shadow />
+                     </bumpInput>
+                     <light>
+                        <Light.Distant />
+                     </light>
+                  </Lighting>
+               </input>
+            </Glow>
+         </effect></Label>
+    <ComboBox fx:id="sala" prefHeight="25.0" prefWidth="97.0" style="-fx-font-family: &quot;name=&quot;Copperplate Gothic Bold&quot;&quot;;" GridPane.columnIndex="3" GridPane.columnSpan="2" GridPane.rowIndex="3">
+         <effect>
+            <Glow />
+         </effect></ComboBox>
       <columnConstraints>
          <ColumnConstraints maxWidth="87.0" minWidth="49.0" prefWidth="87.0" />
          <ColumnConstraints maxWidth="473.0" minWidth="302.0" prefWidth="302.0" />
@@ -183,7 +337,7 @@
 </GridPane>
 
 <StackPane HBox.hgrow="ALWAYS">
-    <TableView fx:id="tablaPeliculas" style="-fx-background-color:  white ;">
+    <TableView fx:id="tablaPeliculas" style="-fx-background-color: white; -fx-font-family: &quot;Copperplate Gothic Bold&quot;;">
         <columns>
             <TableColumn prefWidth="50.0" text="Id">
                 <cellValueFactory>
@@ -221,6 +375,20 @@
                 </cellValueFactory>
             </TableColumn>
         </columns>
+         <effect>
+            <Glow>
+               <input>
+                  <Lighting>
+                     <bumpInput>
+                        <Shadow />
+                     </bumpInput>
+                     <light>
+                        <Light.Distant />
+                     </light>
+                  </Lighting>
+               </input>
+            </Glow>
+         </effect>
     </TableView>
 </StackPane>
 </VBox>

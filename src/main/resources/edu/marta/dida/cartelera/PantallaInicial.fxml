@@ -59,8 +59,14 @@
                <font>
                   <Font name="Copperplate Gothic Bold" size="18.0" />
                </font></Label>
-            <TextField fx:id="tfAdministrador" prefHeight="33.0" prefWidth="263.0" GridPane.columnIndex="1" />
-            <PasswordField fx:id="pfContrasenha" prefHeight="33.0" prefWidth="263.0" GridPane.columnIndex="1" GridPane.rowIndex="1" />
+            <TextField fx:id="tfAdministrador" prefHeight="33.0" prefWidth="263.0" GridPane.columnIndex="1">
+               <font>
+                  <Font name="Copperplate Gothic Bold" size="12.0" />
+               </font></TextField>
+            <PasswordField fx:id="pfContrasenha" prefHeight="33.0" prefWidth="263.0" GridPane.columnIndex="1" GridPane.rowIndex="1">
+               <font>
+                  <Font name="Copperplate Gothic Bold" size="12.0" />
+               </font></PasswordField>
          </children>
       </GridPane>
    </center>
