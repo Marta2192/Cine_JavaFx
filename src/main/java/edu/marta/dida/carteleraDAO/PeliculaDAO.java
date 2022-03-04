@@ -29,7 +29,7 @@ public class PeliculaDAO {
         crearTablaSiNoExiste();
     }
 
-    private void crearTablaSiNoExiste() {
+    public void crearTablaSiNoExiste() {
         
         try (Connection conexionDB = DriverManager.getConnection(URL_CONEXION, USUARIO_BDD, PASSWORD_BDD)){
                     Statement statement = conexionDB.createStatement();
@@ -70,8 +70,9 @@ public class PeliculaDAO {
      public void actualizar(Pelicula pelicula) {
         try (Connection conexionDB = DriverManager.getConnection(URL_CONEXION, USUARIO_BDD, PASSWORD_BDD)){
                     Statement statement = conexionDB.createStatement();
-                    String sql = "UPDATE pelicula set titulo='" + pelicula.getTitulo()+
-                            "', director='" + pelicula.getDirector() + "', sinopsis='" + pelicula.getSinopsis() 
+                    String sql = "UPDATE pelicula set titulo='" + pelicula.getTitulo()
+                            + "', director='" + pelicula.getDirector() 
+                            + "', sinopsis='" + pelicula.getSinopsis() 
                             + "', idioma='" + pelicula.getIdioma() + "', fecha='" + pelicula.getFecha() 
                             + "', sala='" + pelicula.getSala() + "' WHERE id=" + pelicula.getId();       
                     statement.executeUpdate(sql);
@@ -143,5 +144,7 @@ public class PeliculaDAO {
        }
         return pelisPorSala;
     }
+   
+  
     
 }

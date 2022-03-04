@@ -49,9 +49,12 @@ public class FormularioInicialController implements Initializable {
     @FXML
     Button cargar;
     @FXML
+    Button cargarDires;
+    @FXML
     RadioButton rb1;
     @FXML
     RadioButton rb2;
+    
     
    
     
@@ -150,6 +153,7 @@ public class FormularioInicialController implements Initializable {
         sala.getItems().addAll(1, 2, 3, 4 , 5, 6);
     }
     
+    
     @FXML
     private void volver() throws IOException{
          App.setRoot("PantallaInicial");
@@ -159,6 +163,11 @@ public class FormularioInicialController implements Initializable {
     private void cargar() throws IOException{
          App.setRoot("PelisPorSala");
     }    
+    
+    @FXML
+    private void cargarDires() throws IOException{
+         App.setRoot("FormularioDirectores");
+    }  
 
     private void configurarRadio() {
       

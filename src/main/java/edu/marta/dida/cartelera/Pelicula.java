@@ -18,6 +18,9 @@ public class Pelicula {
     String fecha;
     int sala;
 
+    public Pelicula() {
+    }
+
     public Pelicula(int id, String titulo, String director, String sinopsis, int idioma, String fecha, int sala) {
         this.id = id;
         this.titulo = titulo;
@@ -27,11 +30,6 @@ public class Pelicula {
         this.fecha = fecha;
         this.sala = sala;
     }
-
-    public Pelicula() {
-    }
-
-    
 
     public int getId() {
         return id;
@@ -88,8 +86,10 @@ public class Pelicula {
     public void setSala(int sala) {
         this.sala = sala;
     }
+
     
     
+  
     
    
 }

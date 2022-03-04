@@ -41,8 +41,8 @@
             <MenuItem onAction="#cargar" text="Gráfico Salas" />
             <MenuItem onAction="#volver" text="Desconectar" />
         </Menu>
-        <Menu style="-fx-font-weight: bold; -fx-font-size: 16; -fx-font-family: &quot;Copperplate Gothic Bold&quot;;" text="SOCIOS">
-            <MenuItem text="Mostrar Socios" />
+        <Menu style="-fx-font-weight: bold; -fx-font-size: 16; -fx-font-family: &quot;Copperplate Gothic Bold&quot;;" text="DIRECTORES">
+            <MenuItem onAction="#cargarDires" text="Mostrar Directores" />
         </Menu>
       <effect>
          <Glow>
@@ -165,7 +165,7 @@
                         <Shadow />
                      </bumpInput>
                      <light>
-                        <Light.Distant />
+                     
                      </light>
                   </Lighting>
                </input>
@@ -191,7 +191,7 @@
                         <Shadow />
                      </bumpInput>
                      <light>
-                        <Light.Distant />
+                        
                      </light>
                   </Lighting>
                </input>
@@ -217,7 +217,7 @@
                         <Shadow />
                      </bumpInput>
                      <light>
-                        <Light.Distant />
+                      
                      </light>
                   </Lighting>
                </input>
@@ -246,7 +246,7 @@
                         <Shadow />
                      </bumpInput>
                      <light>
-                        <Light.Distant />
+                        
                      </light>
                   </Lighting>
                </input>
@@ -283,7 +283,7 @@
                         <Shadow />
                      </bumpInput>
                      <light>
-                        <Light.Distant />
+                    
                      </light>
                   </Lighting>
                </input>
@@ -309,7 +309,7 @@
                         <Shadow />
                      </bumpInput>
                      <light>
-                        <Light.Distant />
+                    
                      </light>
                   </Lighting>
                </input>
@@ -383,7 +383,7 @@
                         <Shadow />
                      </bumpInput>
                      <light>
-                        <Light.Distant />
+                     
                      </light>
                   </Lighting>
                </input>

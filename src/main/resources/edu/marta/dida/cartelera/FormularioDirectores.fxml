@@ -1,0 +1,73 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import java.lang.*?>
+<?import java.util.*?>
+<?import javafx.scene.*?>
+<?import javafx.scene.control.*?>
+<?import javafx.scene.layout.*?>
+<?import javafx.scene.effect.Glow?>
+<?import javafx.scene.effect.Light.Distant?>
+<?import javafx.scene.effect.Lighting?>
+<?import javafx.scene.effect.Shadow?>
+<?import javafx.geometry.Insets?>
+<?import javafx.scene.image.Image?>
+<?import javafx.scene.image.ImageView?>
+<?import javafx.scene.text.Font?>
+<?import javafx.scene.text.Text?>
+
+<VBox fx:id="vb" prefHeight="600.0" prefWidth="820.0" xmlns:fx="http://javafx.com/fxml/1" fx:controller="edu.marta.dida.cartelera.FormularioDirectoresController">
+<!--<VBox fx:id="vb" prefHeight="600.0" prefWidth="820.0" spacing="20" style="-fx-background-color: #000000;" xmlns="http://javafx.com/javafx/17" xmlns:fx="http://javafx.com/fxml/1" fx:controller="edu.marta.dida.cartelera.FormularioInicialController">-->
+    
+    <padding>
+        <Insets bottom="15" left="15" right="15" top="15" />
+    </padding> 
+    
+    <MenuBar>
+        <Menu style="-fx-font-weight: bold; -fx-font-size: 16; -fx-font-family: &quot;Copperplate Gothic Bold&quot;;" text="INICIO">
+<!--            <MenuItem onAction="#cargar" text="Gráfico Salas" />-->
+            <MenuItem onAction="#volver" text="Desconectar" />
+        </Menu>
+        <Menu style="-fx-font-weight: bold; -fx-font-size: 16; -fx-font-family: &quot;Copperplate Gothic Bold&quot;;" text="PELICULAS">
+            <MenuItem onAction="#cargarPelis" text="Mostrar Peliculas" />
+        </Menu>
+      <effect>
+         <Glow>
+            <input>
+               <Lighting>
+                  <bumpInput>
+                     <Shadow />
+                  </bumpInput>
+                  <light>
+                     
+                  </light>
+               </Lighting>
+            </input>
+         </Glow>
+      </effect>
+    </MenuBar>
+    
+    <ToolBar nodeOrientation="LEFT_TO_RIGHT" style="-fx-background-color: transparent;" HBox.hgrow="ALWAYS">
+    
+    <Text fill="WHITE" style="-fx-font-weight: bold;" text="DIRECTORES" translateX="1.0" translateY="6.0" wrappingWidth="239.5703125">
+        <font>
+            <Font name="Copperplate Gothic Bold" size="42.0" />
+        </font>
+         <effect>
+            <Glow>
+               <input>
+                  <Lighting>
+                     <bumpInput>
+                        <Shadow />
+                     </bumpInput>
+                     <light>
+                        
+                     </light>
+                  </Lighting>
+               </input>
+            </Glow>
+         </effect>
+              
+    </Text>
+        
+    </ToolBar>
+</VBox>

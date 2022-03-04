@@ -1,8 +1,12 @@
-edu\marta\dida\cartelera\PelisPorSala.class
+edu\marta\dida\cartelera\Director.class
+edu\marta\dida\carteleraDAO\DirectorDAO.class
+edu\marta\dida\carteleraDAO\TablaIntermediaDao.class
 edu\marta\dida\cartelera\FormularioInicialController.class
+edu\marta\dida\cartelera\FormularioDirectoresController.class
 edu\marta\dida\carteleraDAO\AdministradorDAO.class
+edu\marta\dida\cartelera\App.class
+edu\marta\dida\cartelera\PelisPorSala.class
 edu\marta\dida\carteleraDAO\PeliculaDAO.class
 edu\marta\dida\cartelera\Administrador.class
 edu\marta\dida\cartelera\ControladorPantallaInicial.class
 edu\marta\dida\cartelera\Pelicula.class
-edu\marta\dida\cartelera\App.class

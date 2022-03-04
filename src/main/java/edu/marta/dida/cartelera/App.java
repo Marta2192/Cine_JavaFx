@@ -1,5 +1,8 @@
 package edu.marta.dida.cartelera;
 
+import edu.marta.dida.carteleraDAO.DirectorDAO;
+import edu.marta.dida.carteleraDAO.PeliculaDAO;
+import edu.marta.dida.carteleraDAO.TablaIntermediaDao;
 import javafx.application.Application;
 import javafx.fxml.FXMLLoader;
 import javafx.scene.Parent;
@@ -17,6 +20,9 @@ public class App extends Application {
 
     private static Scene escena;
     private static Stage stage;
+//    PeliculaDAO peliculadao;
+//    DirectorDAO directordao;
+//    TablaIntermediaDao tablaintermediadao;
 
     public static Stage getStage() {
         return stage;
@@ -26,6 +32,10 @@ public class App extends Application {
 
     @Override
     public void start(Stage primaryStage) throws IOException {
+//        directordao.crearTablaSiNoExiste();
+//        peliculadao.crearTablaSiNoExiste();
+//        tablaintermediadao.crearTablaSiNoExiste();
+        
      this.stage = primaryStage;
      escena = new Scene(loadFXML("PantallaInicial"));  
      
