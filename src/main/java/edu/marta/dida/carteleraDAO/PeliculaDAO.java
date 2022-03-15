@@ -4,6 +4,7 @@
  */
 package edu.marta.dida.carteleraDAO;
 
+import edu.marta.dida.cartelera.Director;
 import edu.marta.dida.cartelera.Pelicula;
 import java.sql.Connection;
 import java.sql.DriverManager;
@@ -24,23 +25,23 @@ public class PeliculaDAO {
     public static final String USUARIO_BDD = "root";
     public static final String PASSWORD_BDD = "";
     
+    DirectorDAO dirDao = new DirectorDAO();
     
-    public PeliculaDAO(){
-        crearTablaSiNoExiste();
-    }
+ 
 
     public void crearTablaSiNoExiste() {
-        
+        System.err.println("Tabla pelicula creada");
         try (Connection conexionDB = DriverManager.getConnection(URL_CONEXION, USUARIO_BDD, PASSWORD_BDD)){
                     Statement statement = conexionDB.createStatement();
                     String sql = "CREATE TABLE IF NOT EXISTS pelicula" + 
                                  "(id INTEGER auto_increment, " + 
                                  "titulo VARCHAR(255), " +
-                                 "director VARCHAR(255), " +
+                                 "director INT(11), " +
                                  "sinopsis VARCHAR(255), " +
                                  "sala INT(11), " +
                                  "fecha VARCHAR(255), " +
-                                 "idioma INT(11) )";
+                                 "idioma INT(11), " + 
+                                 "FOREIGN KEY (director) REFERENCES director (iddir));";
                     statement.executeUpdate(sql);
        } catch (Exception e){
            e.printStackTrace();
@@ -56,12 +57,14 @@ public class PeliculaDAO {
     }
     
      public void guardar(Pelicula pelicula) {
+         
         try (Connection conexionDB = DriverManager.getConnection(URL_CONEXION, USUARIO_BDD, PASSWORD_BDD)){
                     Statement statement = conexionDB.createStatement();
                     String sql = "INSERT INTO pelicula(titulo, director, sinopsis, idioma, fecha, sala) "  
-                                 + "VALUES ('" + pelicula.getTitulo() + "', '" + pelicula.getDirector() + "', '" + pelicula.getSinopsis() 
+                                 + "VALUES ('" + pelicula.getTitulo() + "', '" + pelicula.getDirector().getIdDir() + "', '" + pelicula.getSinopsis() 
                             + "', '" + pelicula.getIdioma()+ "', '" + pelicula.getFecha()+ "', '" + pelicula.getSala()+ "')";        
                     statement.executeUpdate(sql);
+                    
        } catch (Exception e){
            throw new RuntimeException("Ocurrió un error al guardar las películas: " + e.getMessage());
        }
@@ -71,7 +74,7 @@ public class PeliculaDAO {
         try (Connection conexionDB = DriverManager.getConnection(URL_CONEXION, USUARIO_BDD, PASSWORD_BDD)){
                     Statement statement = conexionDB.createStatement();
                     String sql = "UPDATE pelicula set titulo='" + pelicula.getTitulo()
-                            + "', director='" + pelicula.getDirector() 
+                            + "', director='" + pelicula.getDirector().getIdDir()
                             + "', sinopsis='" + pelicula.getSinopsis() 
                             + "', idioma='" + pelicula.getIdioma() + "', fecha='" + pelicula.getFecha() 
                             + "', sala='" + pelicula.getSala() + "' WHERE id=" + pelicula.getId();       
@@ -91,7 +94,9 @@ public class PeliculaDAO {
                         Pelicula pelicula = new Pelicula();
                         pelicula.setId(resultSet.getInt("id"));
                         pelicula.setTitulo(resultSet.getString("titulo"));
-                        pelicula.setDirector(resultSet.getString("director"));
+                        Director director = new DirectorDAO().encontrarDirectorPorId(resultSet.getInt("director"));
+                        
+                        pelicula.setDirector(director); 
                         pelicula.setSinopsis(resultSet.getString("sinopsis"));
                         pelicula.setSala(resultSet.getInt("sala"));
                         pelicula.setFecha(resultSet.getString("fecha"));
@@ -107,6 +112,8 @@ public class PeliculaDAO {
         
         return peliculas;
     }
+     
+    
      
      public void eliminar(Pelicula pelicula){
         try (Connection conexionDB = DriverManager.getConnection(URL_CONEXION, USUARIO_BDD, PASSWORD_BDD)){

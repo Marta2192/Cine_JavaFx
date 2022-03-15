@@ -31,8 +31,7 @@ public class PelisPorSala implements Initializable{
     @FXML
     private PieChart chart;
     
-    @FXML
-    Button cargar;
+    
     
     
     

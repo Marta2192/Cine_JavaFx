@@ -23,7 +23,7 @@ public class TablaIntermediaDao {
     
     
     public void crearTablaSiNoExiste() {
-        
+        System.err.println("Tabla intermedia creada");
         try (Connection conexionDB = DriverManager.getConnection(URL_CONEXION, USUARIO_BDD, PASSWORD_BDD)){
                     Statement statement = conexionDB.createStatement();
                     String sql = "CREATE TABLE IF NOT EXISTS pelicula_director " + 

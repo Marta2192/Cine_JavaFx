@@ -17,6 +17,11 @@ public class Director {
 
     public Director() {
     }
+
+    @Override
+    public String toString() {
+        return nombre;
+    }
     
     
 
@@ -36,7 +41,7 @@ public class Director {
     }
 
     public String getNombre() {
-        return nombre;
+        return this.nombre;
     }
 
     public void setNombre(String nombre) {

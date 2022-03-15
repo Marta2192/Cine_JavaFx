@@ -5,16 +5,10 @@
 package edu.marta.dida.carteleraDAO;
 
 import edu.marta.dida.cartelera.Director;
-import edu.marta.dida.cartelera.Pelicula;
-import static edu.marta.dida.carteleraDAO.AdministradorDAO.PASSWORD_BDD;
-import static edu.marta.dida.carteleraDAO.AdministradorDAO.URL_CONEXION;
-import static edu.marta.dida.carteleraDAO.AdministradorDAO.USUARIO_BDD;
-import static edu.marta.dida.carteleraDAO.PeliculaDAO.PASSWORD_BDD;
-import static edu.marta.dida.carteleraDAO.PeliculaDAO.URL_CONEXION;
-import static edu.marta.dida.carteleraDAO.PeliculaDAO.USUARIO_BDD;
 import java.sql.Connection;
 import java.sql.DriverManager;
 import java.sql.ResultSet;
+import java.sql.SQLException;
 import java.sql.Statement;
 import java.util.ArrayList;
 import java.util.List;
@@ -30,7 +24,7 @@ public class DirectorDAO {
     public static final String PASSWORD_BDD = "";
     
     public void crearTablaSiNoExiste() {
-        
+        System.err.println("Tabla director creada");
         try (Connection conexionDB = DriverManager.getConnection(URL_CONEXION, USUARIO_BDD, PASSWORD_BDD)){
                     Statement statement = conexionDB.createStatement();
                     String sql = "CREATE TABLE IF NOT EXISTS director" + 
@@ -54,11 +48,13 @@ public class DirectorDAO {
     }
 
     public void guardar(Director director) {
+        System.err.println("DENTRO DE GUARDAR DIRECTOR");
        try (Connection conexionDB = DriverManager.getConnection(URL_CONEXION, USUARIO_BDD, PASSWORD_BDD)){
                     Statement statement = conexionDB.createStatement();
                     String sql = "INSERT INTO director(nombre, edad, nivel) "  
                                  + "VALUES ('" + director.getNombre()+ "', '" + director.getEdad() + "', '" + director.getNivel() + "')";        
                     statement.executeUpdate(sql);
+            System.err.println("sql");
        } catch (Exception e){
            throw new RuntimeException("Ocurrió un error al guardar los directores: " + e.getMessage());
        }
@@ -95,6 +91,7 @@ public class DirectorDAO {
            throw new RuntimeException("Ocurrió un error al consultar la información: " + e.getMessage());
        }
         
+        directores.forEach(d -> System.out.println("dire = " + d.getNombre()));
         return directores;
     }
      
@@ -107,5 +104,28 @@ public class DirectorDAO {
            throw new RuntimeException("Ocurrió un error al eliminar el director seleccionado: " + e.getMessage());
        }
     }
-    
+     
+     public Director encontrarDirectorPorId(int id) throws SQLException {
+         
+         Director director = new Director();
+         
+         
+         List<Director> directores = new ArrayList<>();
+         try (Connection conexionDB = DriverManager.getConnection(URL_CONEXION, USUARIO_BDD, PASSWORD_BDD)){
+                    Statement statement = conexionDB.createStatement();
+                    String sql = "SELECT * FROM director WHERE idDir =" + id;
+                    ResultSet resultSet = statement.executeQuery(sql);
+                    while(resultSet.next()){
+                        
+                        director.setIdDir(resultSet.getInt("iddir"));
+                        director.setNombre(resultSet.getString("nombre"));
+                        director.setEdad(resultSet.getInt("edad"));
+                        director.setNivel(resultSet.getString("nivel"));
+                              
+                        directores.add(director);
+                    }                
+         
+         return director;
+     } 
+    }
 }

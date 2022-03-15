@@ -5,7 +5,9 @@ package edu.marta.dida.cartelera;
  * Click nbfs://nbhost/SystemFileSystem/Templates/javafx/FXMLController.java to edit this template
  */
 
+import edu.marta.dida.carteleraDAO.DirectorDAO;
 import edu.marta.dida.carteleraDAO.PeliculaDAO;
+import edu.marta.dida.carteleraDAO.TablaIntermediaDao;
 import java.io.IOException;
 import java.net.URL;
 import java.time.LocalDate;
@@ -14,6 +16,7 @@ import java.util.List;
 import java.util.Map;
 import java.util.ResourceBundle;
 import java.util.stream.Collectors;
+import javafx.application.Platform;
 import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
 import javafx.fxml.Initializable;
@@ -37,7 +40,7 @@ public class FormularioInicialController implements Initializable {
     @FXML
     TextField titulo;
     @FXML
-    TextField director;
+    ComboBox<Director> comboDirector;
     @FXML
     TextArea sinopsis;
     @FXML
@@ -55,26 +58,45 @@ public class FormularioInicialController implements Initializable {
     @FXML
     RadioButton rb2;
     
-    
-   
-    
+
     
     @FXML 
     TableView<Pelicula> tablaPeliculas;
     
-    PeliculaDAO peliculaDAO;
+    
     
     int id = 0;
+    PeliculaDAO peliculaDao = new PeliculaDAO();
+    DirectorDAO directordao = new DirectorDAO();
+    TablaIntermediaDao tablaintermediadao = new TablaIntermediaDao();
+    
+    private Director director = new Director();
+    private DirectorDAO directorDao = new DirectorDAO();
     
     @Override
     public void initialize(URL url, ResourceBundle rb) {
-       
+        directordao.crearTablaSiNoExiste();
+        peliculaDao.crearTablaSiNoExiste();
+        tablaintermediadao.crearTablaSiNoExiste();
+        
+        
         configurarRadio();
-        peliculaDAO = new PeliculaDAO();
+        
         cargarPeliculasCartelera();
         configurarFecha();
         configurarComboBox();
         
+       ObservableList directores = FXCollections.observableArrayList();
+       directores.addAll(directorDao.buscarDirectores());
+       comboDirector.getItems().addAll(directores);
+       comboDirector.setConverter(new ConvertidorComboBox());
+       /*
+       Platform.runLater(() -> {
+           comboDirector.setConverter(new ConvertidorComboBox());
+       });
+       
+       */
+       
        
     } 
     
@@ -85,13 +107,13 @@ public class FormularioInicialController implements Initializable {
        Pelicula pelicula = new Pelicula();
             pelicula.setId(id);
             pelicula.setTitulo(titulo.getText());
-            pelicula.setDirector(director.getText());
+            pelicula.setDirector(comboDirector.getValue());
             pelicula.setSinopsis(sinopsis.getText());
             pelicula.setIdioma(rb1.isSelected()? 0 : 1); 
             pelicula.setFecha(fecha.getValue().toString());
             pelicula.setSala(sala.getValue());
             
-            peliculaDAO.guardarOActualizar(pelicula);
+            peliculaDao.guardarOActualizar(pelicula);
             
             id = 0;
             
@@ -102,18 +124,18 @@ public class FormularioInicialController implements Initializable {
         }
     public void clean(){
             titulo.clear();
-            director.clear();
+            comboDirector.getSelectionModel().clearSelection();
             sinopsis.clear();
             rb1.setSelected(true);
             configurarFecha();
-            sala.setValue(-1);
+            sala.getSelectionModel().clearSelection();
     } 
     
     @FXML
     public void edit() {
         Pelicula pelicula = tablaPeliculas.getSelectionModel().getSelectedItem();
         titulo.setText(pelicula.getTitulo());
-        director.setText(pelicula.getDirector());
+        comboDirector.getSelectionModel().select(pelicula.getDirector());
         sinopsis.setText(pelicula.getSinopsis());
        
        if(pelicula.getIdioma() == 0){
@@ -132,13 +154,13 @@ public class FormularioInicialController implements Initializable {
     @FXML
     public void delete(){
        Pelicula pelicula = tablaPeliculas.getSelectionModel().getSelectedItem();
-        peliculaDAO.eliminar(pelicula);
+        peliculaDao.eliminar(pelicula);
         cargarPeliculasCartelera();
     }
 
     private void cargarPeliculasCartelera() {
        ObservableList<Pelicula> peliculas = FXCollections.observableArrayList();
-       List<Pelicula> peliculasCartelera = peliculaDAO.buscarPelis();
+       List<Pelicula> peliculasCartelera = peliculaDao.buscarPelis();
        peliculas.addAll (peliculasCartelera);
        tablaPeliculas.setItems(peliculas);
     }
@@ -153,6 +175,7 @@ public class FormularioInicialController implements Initializable {
         sala.getItems().addAll(1, 2, 3, 4 , 5, 6);
     }
     
+      
     
     @FXML
     private void volver() throws IOException{

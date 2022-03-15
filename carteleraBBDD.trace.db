@@ -381,3 +381,6 @@ INSERT INTO pelicula(titulo, sinopsis, idioma, fecha, sala) VALUES ('ŕfgtyhjuki
 	at javafx.graphics/com.sun.glass.ui.win.WinApplication._runLoop(Native Method)
 	at javafx.graphics/com.sun.glass.ui.win.WinApplication.lambda$runLoop$3(WinApplication.java:174)
 	at java.base/java.lang.Thread.run(Thread.java:832)
+2022-03-09 18:34:59 jdbc[3]: exception
+org.h2.jdbc.JdbcSQLDataException: Conversión de datos fallida, convirtiendo "Rayo MCQueen"
+Data conversion error converting "Rayo MCQueen" [22018-200]

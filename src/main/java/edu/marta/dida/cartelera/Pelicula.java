@@ -12,7 +12,7 @@ public class Pelicula {
     
     int id;
     String titulo;
-    String director;
+    Director director;
     String sinopsis;
     int idioma;
     String fecha;
@@ -21,7 +21,7 @@ public class Pelicula {
     public Pelicula() {
     }
 
-    public Pelicula(int id, String titulo, String director, String sinopsis, int idioma, String fecha, int sala) {
+    public Pelicula(int id, String titulo, Director director, String sinopsis, int idioma, String fecha, int sala) {
         this.id = id;
         this.titulo = titulo;
         this.director = director;
@@ -30,6 +30,8 @@ public class Pelicula {
         this.fecha = fecha;
         this.sala = sala;
     }
+
+   
 
     public int getId() {
         return id;
@@ -47,13 +49,15 @@ public class Pelicula {
         this.titulo = titulo;
     }
 
-    public String getDirector() {
+    public Director getDirector() {
         return director;
     }
 
-    public void setDirector(String director) {
+    public void setDirector(Director director) {
         this.director = director;
     }
+
+   
 
     public String getSinopsis() {
         return sinopsis;
