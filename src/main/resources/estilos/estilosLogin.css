@@ -1,0 +1,11 @@
+.btnLogin:hover{
+    -fx-background-color: slateblue;
+}
+
+.btnLogin{
+    -fx-background-color:  #454660;
+}
+
+.btnLogin:pressed{
+    -fx-text-fill: black;
+}

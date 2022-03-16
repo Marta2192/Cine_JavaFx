@@ -31,7 +31,7 @@ public class TablaIntermediaDao {
                                  "id INTEGER, " +
                                  "iddir INTEGER, " +
                                  "FOREIGN KEY (iddir) REFERENCES director (iddir), " +
-                                 "FOREIGN KEY (id) REFERENCES pelicula (id));";
+                                 "FOREIGN KEY (id) REFERENCES pelicula (id) ON DELETE CASCADE);";
                                  
 
                     statement.executeUpdate(sql);

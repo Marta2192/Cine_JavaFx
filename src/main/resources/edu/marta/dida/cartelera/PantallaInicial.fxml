@@ -1,5 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
+<?import java.net.URL?>
 <?import javafx.geometry.Insets?>
 <?import javafx.scene.control.Button?>
 <?import javafx.scene.control.Label?>
@@ -13,8 +14,11 @@
 <?import javafx.scene.layout.RowConstraints?>
 <?import javafx.scene.text.Font?>
 
-<BorderPane prefHeight="365.0" prefWidth="596.0" style="-fx-background-image: url('file:C:/Users/user/Documents/NetBeansProjects/Cartelera/src/main/resources/imagenInicial/portada.jpg'); -fx-background-size: 100% 100%;" xmlns="http://javafx.com/javafx/17" xmlns:fx="http://javafx.com/fxml/1" fx:controller="edu.marta.dida.cartelera.ControladorPantallaInicial">
-   <top>
+<BorderPane prefHeight="365.0" prefWidth="650.0" style="-fx-background-image: url('file:C:/Users/user/Documents/NetBeansProjects/Cartelera/src/main/resources/imagenInicial/portada.jpg'); -fx-background-size: 100% 100%;" xmlns="http://javafx.com/javafx/17" xmlns:fx="http://javafx.com/fxml/1" fx:controller="edu.marta.dida.cartelera.ControladorPantallaInicial">
+    <stylesheets>
+        <URL value="@/estilos/estilosLogin.css" />
+    </stylesheets>
+    <top>
        
        <Label alignment="TOP_CENTER" contentDisplay="CENTER" nodeOrientation="LEFT_TO_RIGHT" text="CINEMA" textAlignment="CENTER" textFill="WHITE" textOverrun="CENTER_ELLIPSIS" BorderPane.alignment="TOP_CENTER">
            <font>
@@ -26,7 +30,7 @@
     </top>
     <bottom>
    
-        <Button fx:id="entrada" onAction="#irSegundaPantalla" prefHeight="44.0" prefWidth="150.0" style="-fx-background-color: #454660;" text="Entrar" textFill="WHITE" BorderPane.alignment="CENTER">
+        <Button id="btnLogin" fx:id="entrada" onAction="#irSegundaPantalla" prefHeight="44.0" prefWidth="150.0" styleClass="btnLogin" stylesheets="@../../../../estilos/estilosLogin.css" text="Entrar" textFill="WHITE" BorderPane.alignment="CENTER">
       <font>
          <Font name="Copperplate Gothic Bold" size="18.0" />
       </font>
